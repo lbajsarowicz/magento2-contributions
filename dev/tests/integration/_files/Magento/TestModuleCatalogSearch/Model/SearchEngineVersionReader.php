@@ -9,7 +9,7 @@ namespace Magento\TestModuleCatalogSearch\Model;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\TestFramework\Helper\Bootstrap;
-use Magento\TestFramework\Helper\Curl;
+use Magento\Framework\HTTP\Client\Curl;
 
 /**
  * Retrieve search engine version by curl request
