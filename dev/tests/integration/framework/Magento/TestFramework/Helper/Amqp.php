@@ -15,12 +15,12 @@ use Magento\Framework\HTTP\Client\Curl;
  */
 class Amqp
 {
-    const CONFIG_PATH_HOST = 'queue/amqp/host';
-    const CONFIG_PATH_USER = 'queue/amqp/user';
-    const CONFIG_PATH_PASSWORD = 'queue/amqp/password';
-    const DEFAULT_MANAGEMENT_PROTOCOL = 'http';
-    const DEFAULT_MANAGEMENT_PORT = '15672';
-    const DEFAULT_VIRTUALHOST = '/';
+    public const CONFIG_PATH_HOST = 'queue/amqp/host';
+    public const CONFIG_PATH_USER = 'queue/amqp/user';
+    public const CONFIG_PATH_PASSWORD = 'queue/amqp/password';
+    public const DEFAULT_MANAGEMENT_PROTOCOL = 'http';
+    public const DEFAULT_MANAGEMENT_PORT = '15672';
+    public const DEFAULT_VIRTUALHOST = '/';
 
     /**
      * @var Curl
