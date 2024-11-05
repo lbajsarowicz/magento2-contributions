@@ -282,6 +282,39 @@ class Curl implements \Magento\Framework\HTTP\ClientInterface
     }
 
     /**
+     * Make OPTIONS request
+     *
+     * @param string $uri
+     * @return void
+     */
+    public function options($uri)
+    {
+        $this->makeRequest("OPTIONS", $uri);
+    }
+
+    /**
+     * Make HEAD request
+     *
+     * @param string $uri
+     * @return void
+     */
+    public function head($uri)
+    {
+        $this->makeRequest("HEAD", $uri);
+    }
+
+    /**
+     * Make TRACE request
+     *
+     * @param string $uri
+     * @return void
+     */
+    public function trace($uri)
+    {
+        $this->makeRequest("TRACE", $uri);
+    }
+
+    /**
      * Get response headers
      *
      * @return array
