@@ -247,6 +247,41 @@ class Curl implements \Magento\Framework\HTTP\ClientInterface
     }
 
     /**
+     * Make PUT request
+     *
+     * @param string $uri
+     * @param array|string $params
+     * @return void
+     */
+    public function put($uri, $params)
+    {
+        $this->makeRequest("PUT", $uri, $params);
+    }
+
+    /**
+     * Make DELETE request
+     *
+     * @param string $uri
+     * @return void
+     */
+    public function delete($uri)
+    {
+        $this->makeRequest("DELETE", $uri);
+    }
+
+    /**
+     * Make PATCH request
+     *
+     * @param string $uri
+     * @param array|string $params
+     * @return void
+     */
+    public function patch($uri, $params)
+    {
+        $this->makeRequest("PATCH", $uri, $params);
+    }
+
+    /**
      * Get response headers
      *
      * @return array
