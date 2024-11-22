@@ -1,9 +1,8 @@
 <?php
 /**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
+ * Copyright 2011 Adobe
+ * All Rights Reserved.
  */
-
 declare(strict_types=1);
 
 namespace Magento\Framework\HTTP\Client;
@@ -261,11 +260,12 @@ class Curl implements \Magento\Framework\HTTP\ClientInterface
      * Make DELETE request
      *
      * @param string $uri
+     * @param array|string $params
      * @return void
      */
-    public function delete($uri)
+    public function delete(string $uri, array|string $params = [])
     {
-        $this->makeRequest("DELETE", $uri);
+        $this->makeRequest("DELETE", $uri, $params);
     }
 
     /**
@@ -284,22 +284,24 @@ class Curl implements \Magento\Framework\HTTP\ClientInterface
      * Make OPTIONS request
      *
      * @param string $uri
+     * @param array|string $params
      * @return void
      */
-    public function options($uri)
+    public function options(string $uri, array|string $params = [])
     {
-        $this->makeRequest("OPTIONS", $uri);
+        $this->makeRequest("OPTIONS", $uri, $params);
     }
 
     /**
      * Make HEAD request
      *
      * @param string $uri
+     * @param array|string $params
      * @return void
      */
-    public function head($uri)
+    public function head(string $uri, array|string $params = [])
     {
-        $this->makeRequest("HEAD", $uri);
+        $this->makeRequest("HEAD", $uri, $params);
     }
 
     /**
@@ -308,9 +310,21 @@ class Curl implements \Magento\Framework\HTTP\ClientInterface
      * @param string $uri
      * @return void
      */
-    public function trace($uri)
+    public function trace(string $uri)
     {
         $this->makeRequest("TRACE", $uri);
+    }
+
+    /**
+     * Make CONNECT request
+     *
+     * @param string $uri
+     * @param array|string $params
+     * @return void
+     */
+    public function connect(string $uri, array|string $params = [])
+    {
+        $this->makeRequest("CONNECT", $uri, $params);
     }
 
     /**
