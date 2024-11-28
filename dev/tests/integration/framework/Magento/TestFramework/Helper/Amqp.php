@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace Magento\TestFramework\Helper;
 
 use Magento\Framework\HTTP\Client\Curl;
+use Magento\Framework\App\DeploymentConfig;
 
 /**
  * Helper class to access RabbitMQ server configuration
@@ -27,7 +28,7 @@ class Amqp
     private $curl;
 
     /**
-     * @var \Magento\Framework\App\DeploymentConfig
+     * @var DeploymentConfig
      */
     private $deploymentConfig;
 
@@ -43,14 +44,17 @@ class Amqp
 
     /**
      * Initialize dependencies.
-     * @param \Magento\Framework\App\DeploymentConfig $deploymentConfig
+     * @param DeploymentConfig $deploymentConfig
+     * @param Curl $curl
      */
     public function __construct(
-        \Magento\Framework\App\DeploymentConfig $deploymentConfig = null
+        DeploymentConfig $deploymentConfig = null,
+        Curl $curl = null
     ) {
         $this->deploymentConfig = $deploymentConfig ?? \Magento\TestFramework\Helper\Bootstrap::getObjectManager()
-            ->get(\Magento\Framework\App\DeploymentConfig::class);
-        $this->curl = new Curl();
+            ->get(DeploymentConfig::class);
+        $this->curl = $curl ?? \Magento\TestFramework\Helper\Bootstrap::getObjectManager()
+            ->get(Curl::class);
         $this->curl->setCredentials(
             $this->deploymentConfig->get(self::CONFIG_PATH_USER),
             $this->deploymentConfig->get(self::CONFIG_PATH_PASSWORD)
