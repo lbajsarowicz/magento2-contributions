@@ -28,7 +28,7 @@ class ExpressionConverterTest extends TestCase
     /**
      * @return array
      */
-    public function shortenEntityNameDataProvider()
+    public static function shortenEntityNameDataProvider()
     {
         return [
             'Short identifier' => [
