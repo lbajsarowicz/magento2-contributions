@@ -18,6 +18,9 @@ class ExpressionConverter
      */
     public const MYSQL_IDENTIFIER_LEN = 64;
 
+    /** @see \Magento\Framework\DB\Adapter\Pdo\Mysql::getTableName */
+    private const TABLE_PREFIX = 't_';
+
     /**
      * Dictionary maps common words in identifiers to abbreviations
      *
@@ -99,8 +102,8 @@ class ExpressionConverter
      * Shorten the name of a MySql identifier, by abbreviating common words and hashing if necessary. Prepends the
      * given prefix to clarify what kind of entity the identifier represents, in case hashing is used.
      *
-     * @param string $entityName
-     * @param string $prefix
+     * @param string|null $entityName
+     * @param string|null $prefix
      * @return string
      */
     public static function shortenEntityName($entityName, $prefix)
@@ -109,7 +112,16 @@ class ExpressionConverter
             return null;
         }
 
-        $fullEntityName = $prefix . $entityName;
+        // Table Names (prefixed with `t_`) are the only case when entity name should not be prefixed.
+        if ($prefix === self::TABLE_PREFIX) {
+            $prefix = '';
+        }
+
+        $fullEntityName = $entityName;
+        if (!empty($prefix) && !str_starts_with($entityName, $prefix)) {
+            $fullEntityName = $prefix . $entityName;
+        }
+
         if (strlen($fullEntityName) <= self::MYSQL_IDENTIFIER_LEN) {
             return $fullEntityName;
         }
