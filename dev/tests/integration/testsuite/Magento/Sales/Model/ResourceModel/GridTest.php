@@ -1,7 +1,7 @@
 <?php
 /**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
+ * Copyright 2024 Adobe
+ * All Rights Reserved.
  */
 declare(strict_types=1);
 
@@ -179,7 +179,7 @@ class GridTest extends TestCase
                     'gridTableName' => 'sales_shipment_grid',
                 ],
                 'order_id',
-                'SALES_SHIPMENT_GRID_ORDER_ID'
+                'IDX_SALES_SHIPMENT_GRID_ORDER_ID'
             ],
         ];
     }

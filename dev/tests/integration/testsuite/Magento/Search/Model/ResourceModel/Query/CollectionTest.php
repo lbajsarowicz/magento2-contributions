@@ -33,8 +33,8 @@ class CollectionTest extends TestCase
     public function testSearchQueryTableHasProperIndex(): void
     {
         $table = $this->queryResource->getTable('search_query');
-        $indexQueryStoreNumPopularity = 'SEARCH_QUERY_STORE_ID_NUM_RESULTS_POPULARITY';
-        $indexQueryTextStoreNumPopularity = 'SEARCH_QUERY_QUERY_TEXT_STORE_ID_NUM_RESULTS_POPULARITY';
+        $indexQueryStoreNumPopularity = 'IDX_SEARCH_QUERY_STORE_ID_NUM_RESULTS_POPULARITY';
+        $indexQueryTextStoreNumPopularity = 'IDX_SEARCH_QUERY_QUERY_TEXT_STORE_ID_NUM_RESULTS_POPULARITY';
         $connection = $this->queryResource->getConnection();
         $tableIndexes = $connection->getIndexList($table);
         $this->assertArrayHasKey($indexQueryStoreNumPopularity, $tableIndexes);
