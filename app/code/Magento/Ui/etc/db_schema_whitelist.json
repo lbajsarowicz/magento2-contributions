@@ -12,11 +12,11 @@
             "updated_at": true
         },
         "index": {
-            "UI_BOOKMARK_USER_ID_NAMESPACE_IDENTIFIER": true
+            "IDX_UI_BOOKMARK_USER_ID_NAMESPACE_IDENTIFIER": true
         },
         "constraint": {
             "PRIMARY": true,
-            "UI_BOOKMARK_USER_ID_ADMIN_USER_USER_ID": true
+            "FK_UI_BOOKMARK_USER_ID_ADMIN_USER_USER_ID": true
         }
     }
 }

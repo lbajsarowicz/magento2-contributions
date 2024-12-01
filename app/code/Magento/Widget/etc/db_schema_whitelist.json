@@ -7,7 +7,7 @@
             "parameters": true
         },
         "index": {
-            "WIDGET_WIDGET_CODE": true
+            "IDX_WIDGET_WIDGET_CODE": true
         },
         "constraint": {
             "PRIMARY": true
@@ -25,7 +25,7 @@
         },
         "constraint": {
             "PRIMARY": true,
-            "WIDGET_INSTANCE_THEME_ID_THEME_THEME_ID": true
+            "FK_WIDGET_INSTANCE_THEME_ID_THEME_THEME_ID": true
         }
     },
     "widget_instance_page": {
@@ -40,11 +40,11 @@
             "page_template": true
         },
         "index": {
-            "WIDGET_INSTANCE_PAGE_INSTANCE_ID": true
+            "IDX_WIDGET_INSTANCE_PAGE_INSTANCE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "WIDGET_INSTANCE_PAGE_INSTANCE_ID_WIDGET_INSTANCE_INSTANCE_ID": true
+            "FK_WIDGET_INSTANCE_PAGE_INSTANCE_ID_WIDGET_INSTANCE_INSTANCE_ID": true
         }
     },
     "widget_instance_page_layout": {
@@ -53,13 +53,12 @@
             "layout_update_id": true
         },
         "index": {
-            "WIDGET_INSTANCE_PAGE_LAYOUT_PAGE_ID": true
+            "IDX_WIDGET_INSTANCE_PAGE_LAYOUT_PAGE_ID": true
         },
         "constraint": {
-            "PRIMARY": true,
-            "WIDGET_INSTANCE_PAGE_LAYOUT_PAGE_ID_WIDGET_INSTANCE_PAGE_PAGE_ID": true,
-            "WIDGET_INSTANCE_PAGE_LYT_LYT_UPDATE_ID_LYT_UPDATE_LYT_UPDATE_ID": true,
-            "WIDGET_INSTANCE_PAGE_LAYOUT_LAYOUT_UPDATE_ID_PAGE_ID": true
+            "FK_WIDGET_INSTANCE_PAGE_LYT_PAGE_ID_WIDGET_INSTANCE_PAGE_PAGE_ID": true,
+            "FK_C193754AE5C7A50EE4E962C7D8234539": true,
+            "PRIMARY": true
         }
     },
     "layout_update": {
@@ -71,7 +70,7 @@
             "updated_at": true
         },
         "index": {
-            "LAYOUT_UPDATE_HANDLE": true
+            "IDX_LAYOUT_UPDATE_HANDLE": true
         },
         "constraint": {
             "PRIMARY": true
@@ -86,14 +85,14 @@
             "is_temporary": true
         },
         "index": {
-            "LAYOUT_LINK_LAYOUT_UPDATE_ID": true,
-            "LAYOUT_LINK_STORE_ID_THEME_ID_LAYOUT_UPDATE_ID_IS_TEMPORARY": true
+            "IDX_LAYOUT_LINK_LAYOUT_UPDATE_ID": true,
+            "IDX_LAYOUT_LINK_STORE_ID_THEME_ID_LAYOUT_UPDATE_ID_IS_TEMPORARY": true
         },
         "constraint": {
             "PRIMARY": true,
-            "LAYOUT_LINK_LAYOUT_UPDATE_ID_LAYOUT_UPDATE_LAYOUT_UPDATE_ID": true,
-            "LAYOUT_LINK_STORE_ID_STORE_STORE_ID": true,
-            "LAYOUT_LINK_THEME_ID_THEME_THEME_ID": true
+            "FK_LAYOUT_LINK_LAYOUT_UPDATE_ID_LAYOUT_UPDATE_LAYOUT_UPDATE_ID": true,
+            "FK_LAYOUT_LINK_STORE_ID_STORE_STORE_ID": true,
+            "FK_LAYOUT_LINK_THEME_ID_THEME_THEME_ID": true
         }
     }
 }

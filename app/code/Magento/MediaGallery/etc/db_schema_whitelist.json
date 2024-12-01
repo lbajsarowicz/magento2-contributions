@@ -15,13 +15,11 @@
             "updated_at": true
         },
         "index": {
-            "MEDIA_GALLERY_ID": true,
-            "MEDIA_GALLERY_ASSET_ID": true,
-            "MEDIA_GALLERY_ASSET_TITLE": true
+            "IDX_MEDIA_GALLERY_ASSET_ID": true,
+            "FTI_MEDIA_GALLERY_ASSET_TITLE": true
         },
         "constraint": {
-            "PRIMARY": true,
-            "MEDIA_GALLERY_ASSET_PATH": true
+            "PRIMARY": true
         }
     },
     "media_gallery_keyword": {
@@ -30,11 +28,11 @@
             "keyword": true
         },
         "index": {
-            "MEDIA_GALLERY_KEYWORD_ID": true
+            "IDX_MEDIA_GALLERY_KEYWORD_ID": true
         },
         "constraint": {
-            "MEDIA_GALLERY_KEYWORD_KEYWORD": true,
-            "PRIMARY": true
+            "PRIMARY": true,
+            "UNQ_MEDIA_GALLERY_KEYWORD_KEYWORD": true
         }
     },
     "media_gallery_asset_keyword": {
@@ -43,17 +41,13 @@
             "asset_id": true
         },
         "index": {
-            "MEDIA_GALLERY_ASSET_KEYWORD_ASSET_ID_INDEX": true,
-            "MEDIA_GALLERY_ASSET_KEYWORD_KEYWORD_ID_INDEX": true,
-            "MEDIA_GALLERY_ASSET_KEYWORD_ASSET_ID": true,
-            "MEDIA_GALLERY_ASSET_KEYWORD_KEYWORD_ID": true
+            "IDX_MEDIA_GALLERY_ASSET_KEYWORD_ASSET_ID": true,
+            "IDX_MEDIA_GALLERY_ASSET_KEYWORD_KEYWORD_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "MEDIA_GALLERY_KEYWORD_KEYWORD_ID_MEDIA_GALLERY_KEYWORD_ID": true,
-            "MEDIA_GALLERY_KEYWORD_ASSET_ID_ASSET_ID": true,
-            "MEDIA_GALLERY_ASSET_KEYWORD_KEYWORD_ID_MEDIA_GALLERY_KEYWORD_ID": true,
-            "MEDIA_GALLERY_ASSET_KEYWORD_ASSET_ID_MEDIA_GALLERY_ASSET_ID": true
+            "FK_MDA_GLR_ASSET_KEYWORD_KEYWORD_ID_MDA_GLR_KEYWORD_ID": true,
+            "FK_MEDIA_GALLERY_ASSET_KEYWORD_ASSET_ID_MEDIA_GALLERY_ASSET_ID": true
         }
     }
 }

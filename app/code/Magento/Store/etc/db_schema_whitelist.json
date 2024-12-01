@@ -9,12 +9,12 @@
             "is_default": true
         },
         "index": {
-            "STORE_WEBSITE_SORT_ORDER": true,
-            "STORE_WEBSITE_DEFAULT_GROUP_ID": true
+            "IDX_STORE_WEBSITE_SORT_ORDER": true,
+            "IDX_STORE_WEBSITE_DEFAULT_GROUP_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "STORE_WEBSITE_CODE": true
+            "UNQ_STORE_WEBSITE_CODE": true
         }
     },
     "store_group": {
@@ -27,13 +27,13 @@
             "code": true
         },
         "index": {
-            "STORE_GROUP_WEBSITE_ID": true,
-            "STORE_GROUP_DEFAULT_STORE_ID": true
+            "IDX_STORE_GROUP_WEBSITE_ID": true,
+            "IDX_STORE_GROUP_DEFAULT_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "STORE_GROUP_WEBSITE_ID_STORE_WEBSITE_WEBSITE_ID": true,
-            "STORE_GROUP_CODE": true
+            "FK_STORE_GROUP_WEBSITE_ID_STORE_WEBSITE_WEBSITE_ID": true,
+            "UNQ_STORE_GROUP_CODE": true
         }
     },
     "store": {
@@ -47,15 +47,15 @@
             "is_active": true
         },
         "index": {
-            "STORE_WEBSITE_ID": true,
-            "STORE_IS_ACTIVE_SORT_ORDER": true,
-            "STORE_GROUP_ID": true
+            "IDX_STORE_WEBSITE_ID": true,
+            "IDX_STORE_IS_ACTIVE_SORT_ORDER": true,
+            "IDX_STORE_GROUP_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "STORE_GROUP_ID_STORE_GROUP_GROUP_ID": true,
-            "STORE_WEBSITE_ID_STORE_WEBSITE_WEBSITE_ID": true,
-            "STORE_CODE": true
+            "FK_STORE_GROUP_ID_STORE_GROUP_GROUP_ID": true,
+            "FK_STORE_WEBSITE_ID_STORE_WEBSITE_WEBSITE_ID": true,
+            "UNQ_STORE_CODE": true
         }
     }
 }

@@ -3,6 +3,7 @@
         "column": {
             "entity_id": true,
             "customer_id": true,
+            "website_id": true,
             "public_hash": true,
             "payment_method_code": true,
             "type": true,
@@ -11,16 +12,13 @@
             "gateway_token": true,
             "details": true,
             "is_active": true,
-            "is_visible": true,
-            "website_id": true
+            "is_visible": true
         },
         "constraint": {
             "PRIMARY": true,
-            "VAULT_PAYMENT_TOKEN_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID": true,
-            "VAULT_PAYMENT_TOKEN_PAYMENT_METHOD_CODE_CSTR_ID_GATEWAY_TOKEN": true,
-            "UNQ_54DCE14AEAEA03B587F9EF723EB10A10": true,
-            "VAULT_PAYMENT_TOKEN_PUBLIC_HASH": true,
-            "VAULT_PAYMENT_TOKEN_HASH_UNIQUE_INDEX_PUBLIC_HASH": true
+            "FK_VAULT_PAYMENT_TOKEN_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID": true,
+            "UNQ_F00A447187C37B839D3F3C607D1DCDCA": true,
+            "UNQ_VAULT_PAYMENT_TOKEN_PUBLIC_HASH": true
         }
     },
     "vault_payment_token_order_payment_link": {

@@ -10,8 +10,8 @@
             "is_active": true
         },
         "index": {
-            "CMS_BLOCK_TITLE_IDENTIFIER_CONTENT": true,
-            "CMS_BLOCK_IDENTIFIER": true
+            "IDX_CMS_BLOCK_IDENTIFIER": true,
+            "FTI_CMS_BLOCK_TITLE_IDENTIFIER_CONTENT": true
         },
         "constraint": {
             "PRIMARY": true
@@ -23,12 +23,12 @@
             "store_id": true
         },
         "index": {
-            "CMS_BLOCK_STORE_STORE_ID": true
+            "IDX_CMS_BLOCK_STORE_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "CMS_BLOCK_STORE_BLOCK_ID_CMS_BLOCK_BLOCK_ID": true,
-            "CMS_BLOCK_STORE_STORE_ID_STORE_STORE_ID": true
+            "FK_CMS_BLOCK_STORE_BLOCK_ID_CMS_BLOCK_BLOCK_ID": true,
+            "FK_CMS_BLOCK_STORE_STORE_ID_STORE_STORE_ID": true
         }
     },
     "cms_page": {
@@ -49,14 +49,14 @@
             "custom_theme": true,
             "custom_root_template": true,
             "custom_layout_update_xml": true,
+            "layout_update_selected": true,
             "custom_theme_from": true,
             "custom_theme_to": true,
-            "meta_title": true,
-            "layout_update_selected": true
+            "meta_title": true
         },
         "index": {
-            "CMS_PAGE_IDENTIFIER": true,
-            "CMS_PAGE_TITLE_META_KEYWORDS_META_DESCRIPTION_IDENTIFIER_CONTENT": true
+            "IDX_CMS_PAGE_IDENTIFIER": true,
+            "FTI_9BFF65504E74A617001964B9B76814B7": true
         },
         "constraint": {
             "PRIMARY": true
@@ -68,12 +68,12 @@
             "store_id": true
         },
         "index": {
-            "CMS_PAGE_STORE_STORE_ID": true
+            "IDX_CMS_PAGE_STORE_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "CMS_PAGE_STORE_PAGE_ID_CMS_PAGE_PAGE_ID": true,
-            "CMS_PAGE_STORE_STORE_ID_STORE_STORE_ID": true
+            "FK_CMS_PAGE_STORE_PAGE_ID_CMS_PAGE_PAGE_ID": true,
+            "FK_CMS_PAGE_STORE_STORE_ID_STORE_STORE_ID": true
         }
     }
 }

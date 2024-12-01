@@ -26,7 +26,7 @@
             "uses_per_coupon": true
         },
         "index": {
-            "SALESRULE_IS_ACTIVE_SORT_ORDER_TO_DATE_FROM_DATE": true
+            "IDX_SALESRULE_IS_ACTIVE_SORT_ORDER_TO_DATE_FROM_DATE": true
         },
         "constraint": {
             "PRIMARY": true
@@ -46,13 +46,13 @@
             "type": true
         },
         "index": {
-            "SALESRULE_COUPON_RULE_ID": true
+            "IDX_SALESRULE_COUPON_RULE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALESRULE_COUPON_RULE_ID_SALESRULE_RULE_ID": true,
-            "SALESRULE_COUPON_CODE": true,
-            "SALESRULE_COUPON_RULE_ID_IS_PRIMARY": true
+            "FK_SALESRULE_COUPON_RULE_ID_SALESRULE_RULE_ID": true,
+            "UNQ_SALESRULE_COUPON_CODE": true,
+            "UNQ_SALESRULE_COUPON_RULE_ID_IS_PRIMARY": true
         }
     },
     "salesrule_coupon_usage": {
@@ -62,12 +62,12 @@
             "times_used": true
         },
         "index": {
-            "SALESRULE_COUPON_USAGE_CUSTOMER_ID": true
+            "IDX_SALESRULE_COUPON_USAGE_CUSTOMER_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALESRULE_COUPON_USAGE_COUPON_ID_SALESRULE_COUPON_COUPON_ID": true,
-            "SALESRULE_COUPON_USAGE_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID": true
+            "FK_SALESRULE_COUPON_USAGE_COUPON_ID_SALESRULE_COUPON_COUPON_ID": true,
+            "FK_SALESRULE_COUPON_USAGE_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID": true
         }
     },
     "salesrule_customer": {
@@ -78,13 +78,13 @@
             "times_used": true
         },
         "index": {
-            "SALESRULE_CUSTOMER_RULE_ID_CUSTOMER_ID": true,
-            "SALESRULE_CUSTOMER_CUSTOMER_ID_RULE_ID": true
+            "IDX_SALESRULE_CUSTOMER_RULE_ID_CUSTOMER_ID": true,
+            "IDX_SALESRULE_CUSTOMER_CUSTOMER_ID_RULE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALESRULE_CUSTOMER_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID": true,
-            "SALESRULE_CUSTOMER_RULE_ID_SALESRULE_RULE_ID": true
+            "FK_SALESRULE_CUSTOMER_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID": true,
+            "FK_SALESRULE_CUSTOMER_RULE_ID_SALESRULE_RULE_ID": true
         }
     },
     "salesrule_label": {
@@ -95,13 +95,13 @@
             "label": true
         },
         "index": {
-            "SALESRULE_LABEL_STORE_ID": true
+            "IDX_SALESRULE_LABEL_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALESRULE_LABEL_RULE_ID_SALESRULE_RULE_ID": true,
-            "SALESRULE_LABEL_STORE_ID_STORE_STORE_ID": true,
-            "SALESRULE_LABEL_RULE_ID_STORE_ID": true
+            "FK_SALESRULE_LABEL_RULE_ID_SALESRULE_RULE_ID": true,
+            "FK_SALESRULE_LABEL_STORE_ID_STORE_STORE_ID": true,
+            "UNQ_SALESRULE_LABEL_RULE_ID_STORE_ID": true
         }
     },
     "salesrule_product_attribute": {
@@ -112,16 +112,16 @@
             "attribute_id": true
         },
         "index": {
-            "SALESRULE_PRODUCT_ATTRIBUTE_WEBSITE_ID": true,
-            "SALESRULE_PRODUCT_ATTRIBUTE_CUSTOMER_GROUP_ID": true,
-            "SALESRULE_PRODUCT_ATTRIBUTE_ATTRIBUTE_ID": true
+            "IDX_SALESRULE_PRODUCT_ATTRIBUTE_WEBSITE_ID": true,
+            "IDX_SALESRULE_PRODUCT_ATTRIBUTE_CUSTOMER_GROUP_ID": true,
+            "IDX_SALESRULE_PRODUCT_ATTRIBUTE_ATTRIBUTE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALESRULE_PRD_ATTR_ATTR_ID_EAV_ATTR_ATTR_ID": true,
-            "SALESRULE_PRD_ATTR_CSTR_GROUP_ID_CSTR_GROUP_CSTR_GROUP_ID": true,
-            "SALESRULE_PRODUCT_ATTRIBUTE_RULE_ID_SALESRULE_RULE_ID": true,
-            "SALESRULE_PRODUCT_ATTRIBUTE_WEBSITE_ID_STORE_WEBSITE_WEBSITE_ID": true
+            "FK_SALESRULE_PRD_ATTR_ATTR_ID_EAV_ATTR_ATTR_ID": true,
+            "FK_SALESRULE_PRD_ATTR_CSTR_GROUP_ID_CSTR_GROUP_CSTR_GROUP_ID": true,
+            "FK_SALESRULE_PRODUCT_ATTRIBUTE_RULE_ID_SALESRULE_RULE_ID": true,
+            "FK_SALESRULE_PRD_ATTR_WS_ID_STORE_WS_WS_ID": true
         }
     },
     "salesrule_coupon_aggregated": {
@@ -141,13 +141,13 @@
             "rule_name": true
         },
         "index": {
-            "SALESRULE_COUPON_AGGREGATED_STORE_ID": true,
-            "SALESRULE_COUPON_AGGREGATED_RULE_NAME": true
+            "IDX_SALESRULE_COUPON_AGGREGATED_STORE_ID": true,
+            "IDX_SALESRULE_COUPON_AGGREGATED_RULE_NAME": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALESRULE_COUPON_AGGREGATED_STORE_ID_STORE_STORE_ID": true,
-            "SALESRULE_COUPON_AGGRED_PERIOD_STORE_ID_ORDER_STS_COUPON_CODE": true
+            "FK_SALESRULE_COUPON_AGGREGATED_STORE_ID_STORE_STORE_ID": true,
+            "UNQ_E190B255EE85D3D58724453C7F718A6B": true
         }
     },
     "salesrule_coupon_aggregated_updated": {
@@ -167,12 +167,12 @@
             "rule_name": true
         },
         "index": {
-            "SALESRULE_COUPON_AGGREGATED_UPDATED_STORE_ID": true,
-            "SALESRULE_COUPON_AGGREGATED_UPDATED_RULE_NAME": true
+            "IDX_SALESRULE_COUPON_AGGREGATED_UPDATED_STORE_ID": true,
+            "IDX_SALESRULE_COUPON_AGGREGATED_UPDATED_RULE_NAME": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALESRULE_COUPON_AGGREGATED_UPDATED_STORE_ID_STORE_STORE_ID": true,
+            "FK_SALESRULE_COUPON_AGGREGATED_UPDATED_STORE_ID_STORE_STORE_ID": true,
             "UNQ_7196FA120A4F0F84E1B66605E87E213E": true
         }
     },
@@ -190,12 +190,12 @@
             "rule_name": true
         },
         "index": {
-            "SALESRULE_COUPON_AGGREGATED_ORDER_STORE_ID": true,
-            "SALESRULE_COUPON_AGGREGATED_ORDER_RULE_NAME": true
+            "IDX_SALESRULE_COUPON_AGGREGATED_ORDER_STORE_ID": true,
+            "IDX_SALESRULE_COUPON_AGGREGATED_ORDER_RULE_NAME": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALESRULE_COUPON_AGGREGATED_ORDER_STORE_ID_STORE_STORE_ID": true,
+            "FK_SALESRULE_COUPON_AGGREGATED_ORDER_STORE_ID_STORE_STORE_ID": true,
             "UNQ_1094D1FBBCBB11704A29DEF3ACC37D2B": true
         }
     },
@@ -205,12 +205,12 @@
             "website_id": true
         },
         "index": {
-            "SALESRULE_WEBSITE_WEBSITE_ID": true
+            "IDX_SALESRULE_WEBSITE_WEBSITE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALESRULE_WEBSITE_RULE_ID_SALESRULE_RULE_ID": true,
-            "SALESRULE_WEBSITE_WEBSITE_ID_STORE_WEBSITE_WEBSITE_ID": true
+            "FK_SALESRULE_WEBSITE_RULE_ID_SALESRULE_RULE_ID": true,
+            "FK_SALESRULE_WEBSITE_WEBSITE_ID_STORE_WEBSITE_WEBSITE_ID": true
         }
     },
     "salesrule_customer_group": {
@@ -219,12 +219,12 @@
             "customer_group_id": true
         },
         "index": {
-            "SALESRULE_CUSTOMER_GROUP_CUSTOMER_GROUP_ID": true
+            "IDX_SALESRULE_CUSTOMER_GROUP_CUSTOMER_GROUP_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALESRULE_CUSTOMER_GROUP_RULE_ID_SALESRULE_RULE_ID": true,
-            "SALESRULE_CSTR_GROUP_CSTR_GROUP_ID_CSTR_GROUP_CSTR_GROUP_ID": true
+            "FK_SALESRULE_CUSTOMER_GROUP_RULE_ID_SALESRULE_RULE_ID": true,
+            "FK_SALESRULE_CSTR_GROUP_CSTR_GROUP_ID_CSTR_GROUP_CSTR_GROUP_ID": true
         }
     }
 }

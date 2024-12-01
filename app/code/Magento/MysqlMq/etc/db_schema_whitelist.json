@@ -6,7 +6,7 @@
         },
         "constraint": {
             "PRIMARY": true,
-            "QUEUE_NAME": true
+            "UNQ_QUEUE_NAME": true
         }
     },
     "queue_message": {
@@ -29,15 +29,13 @@
             "number_of_trials": true
         },
         "index": {
-            "QUEUE_MESSAGE_STATUS_STATUS_UPDATED_AT": true
+            "IDX_QUEUE_MESSAGE_STATUS_STATUS_UPDATED_AT": true
         },
         "constraint": {
             "PRIMARY": true,
-            "QUEUE_MESSAGE_STATUS_MESSAGE_ID_QUEUE_MESSAGE_ID": true,
-            "QUEUE_MESSAGE_ID_QUEUE_MESSAGE_STATUS_MESSAGE_ID": true,
-            "QUEUE_MESSAGE_STATUS_QUEUE_ID_QUEUE_ID": true,
-            "QUEUE_ID_QUEUE_MESSAGE_STATUS_QUEUE_ID": true,
-            "QUEUE_MESSAGE_STATUS_QUEUE_ID_MESSAGE_ID": true
+            "FK_QUEUE_MESSAGE_STATUS_MESSAGE_ID_QUEUE_MESSAGE_ID": true,
+            "FK_QUEUE_MESSAGE_STATUS_QUEUE_ID_QUEUE_ID": true,
+            "UNQ_QUEUE_MESSAGE_STATUS_QUEUE_ID_MESSAGE_ID": true
         }
     }
 }

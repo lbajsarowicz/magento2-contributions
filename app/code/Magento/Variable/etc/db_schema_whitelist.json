@@ -7,7 +7,7 @@
         },
         "constraint": {
             "PRIMARY": true,
-            "VARIABLE_CODE": true
+            "UNQ_VARIABLE_CODE": true
         }
     },
     "variable_value": {
@@ -19,13 +19,13 @@
             "html_value": true
         },
         "index": {
-            "VARIABLE_VALUE_STORE_ID": true
+            "IDX_VARIABLE_VALUE_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "VARIABLE_VALUE_VARIABLE_ID_STORE_ID": true,
-            "VARIABLE_VALUE_STORE_ID_STORE_STORE_ID": true,
-            "VARIABLE_VALUE_VARIABLE_ID_VARIABLE_VARIABLE_ID": true
+            "UNQ_VARIABLE_VALUE_VARIABLE_ID_STORE_ID": true,
+            "FK_VARIABLE_VALUE_STORE_ID_STORE_STORE_ID": true,
+            "FK_VARIABLE_VALUE_VARIABLE_ID_VARIABLE_VARIABLE_ID": true
         }
     }
 }

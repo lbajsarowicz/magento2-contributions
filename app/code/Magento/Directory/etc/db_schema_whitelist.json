@@ -18,7 +18,7 @@
         },
         "constraint": {
             "PRIMARY": true,
-            "DIRECTORY_COUNTRY_FORMAT_COUNTRY_ID_TYPE": true
+            "UNQ_DIRECTORY_COUNTRY_FORMAT_COUNTRY_ID_TYPE": true
         }
     },
     "directory_country_region": {
@@ -29,7 +29,7 @@
             "default_name": true
         },
         "index": {
-            "DIRECTORY_COUNTRY_REGION_COUNTRY_ID": true
+            "IDX_DIRECTORY_COUNTRY_REGION_COUNTRY_ID": true
         },
         "constraint": {
             "PRIMARY": true
@@ -42,11 +42,11 @@
             "name": true
         },
         "index": {
-            "DIRECTORY_COUNTRY_REGION_NAME_REGION_ID": true
+            "IDX_DIRECTORY_COUNTRY_REGION_NAME_REGION_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "DIR_COUNTRY_REGION_NAME_REGION_ID_DIR_COUNTRY_REGION_REGION_ID": true
+            "FK_D7CFDEB379F775328EB6F62695E2B3E1": true
         }
     },
     "directory_currency_rate": {
@@ -56,7 +56,7 @@
             "rate": true
         },
         "index": {
-            "DIRECTORY_CURRENCY_RATE_CURRENCY_TO": true
+            "IDX_DIRECTORY_CURRENCY_RATE_CURRENCY_TO": true
         },
         "constraint": {
             "PRIMARY": true

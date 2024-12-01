@@ -8,7 +8,7 @@
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_ORDER_CONFIRM_CANCEL_ORDER_ID_SALES_ORDER_ENTITY_ID": true
+            "FK_SALES_ORDER_CONFIRM_CANCEL_ORDER_ID_SALES_ORDER_ENTITY_ID": true
         }
     }
 }

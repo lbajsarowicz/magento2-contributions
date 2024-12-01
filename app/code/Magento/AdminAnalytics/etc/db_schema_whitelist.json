@@ -6,7 +6,7 @@
         },
         "constraint": {
             "PRIMARY": true,
-            "ADMIN_ANALYTICS_USAGE_VERSION_LOG_LAST_VIEWED_IN_VERSION": true
+            "UNQ_ADMIN_ANALYTICS_USAGE_VERSION_LOG_LAST_VIEWED_IN_VERSION": true
         }
     }
 }

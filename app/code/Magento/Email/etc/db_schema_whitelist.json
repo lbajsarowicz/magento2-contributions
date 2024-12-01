@@ -12,15 +12,16 @@
             "added_at": true,
             "modified_at": true,
             "orig_template_code": true,
-            "orig_template_variables": true
+            "orig_template_variables": true,
+            "is_legacy": true
         },
         "index": {
-            "EMAIL_TEMPLATE_ADDED_AT": true,
-            "EMAIL_TEMPLATE_MODIFIED_AT": true
+            "IDX_EMAIL_TEMPLATE_ADDED_AT": true,
+            "IDX_EMAIL_TEMPLATE_MODIFIED_AT": true
         },
         "constraint": {
             "PRIMARY": true,
-            "EMAIL_TEMPLATE_TEMPLATE_CODE": true
+            "UNQ_EMAIL_TEMPLATE_TEMPLATE_CODE": true
         }
     }
 }

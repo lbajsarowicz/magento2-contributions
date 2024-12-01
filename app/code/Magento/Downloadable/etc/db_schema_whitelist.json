@@ -14,11 +14,11 @@
             "sample_type": true
         },
         "index": {
-            "DOWNLOADABLE_LINK_PRODUCT_ID_SORT_ORDER": true
+            "IDX_DOWNLOADABLE_LINK_PRODUCT_ID_SORT_ORDER": true
         },
         "constraint": {
             "PRIMARY": true,
-            "DOWNLOADABLE_LINK_PRODUCT_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID": true
+            "FK_DOWNLOADABLE_LINK_PRODUCT_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID": true
         }
     },
     "downloadable_link_price": {
@@ -29,13 +29,13 @@
             "price": true
         },
         "index": {
-            "DOWNLOADABLE_LINK_PRICE_LINK_ID": true,
-            "DOWNLOADABLE_LINK_PRICE_WEBSITE_ID": true
+            "IDX_DOWNLOADABLE_LINK_PRICE_LINK_ID": true,
+            "IDX_DOWNLOADABLE_LINK_PRICE_WEBSITE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "DOWNLOADABLE_LINK_PRICE_LINK_ID_DOWNLOADABLE_LINK_LINK_ID": true,
-            "DOWNLOADABLE_LINK_PRICE_WEBSITE_ID_STORE_WEBSITE_WEBSITE_ID": true
+            "FK_DOWNLOADABLE_LINK_PRICE_LINK_ID_DOWNLOADABLE_LINK_LINK_ID": true,
+            "FK_DOWNLOADABLE_LINK_PRICE_WEBSITE_ID_STORE_WEBSITE_WEBSITE_ID": true
         }
     },
     "downloadable_link_purchased": {
@@ -52,14 +52,14 @@
             "link_section_title": true
         },
         "index": {
-            "DOWNLOADABLE_LINK_PURCHASED_ORDER_ID": true,
-            "DOWNLOADABLE_LINK_PURCHASED_ORDER_ITEM_ID": true,
-            "DOWNLOADABLE_LINK_PURCHASED_CUSTOMER_ID": true
+            "IDX_DOWNLOADABLE_LINK_PURCHASED_ORDER_ID": true,
+            "IDX_DOWNLOADABLE_LINK_PURCHASED_ORDER_ITEM_ID": true,
+            "IDX_DOWNLOADABLE_LINK_PURCHASED_CUSTOMER_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "DL_LNK_PURCHASED_CSTR_ID_CSTR_ENTT_ENTT_ID": true,
-            "DOWNLOADABLE_LINK_PURCHASED_ORDER_ID_SALES_ORDER_ENTITY_ID": true
+            "FK_DL_LNK_PURCHASED_CSTR_ID_CSTR_ENTT_ENTT_ID": true,
+            "FK_DOWNLOADABLE_LINK_PURCHASED_ORDER_ID_SALES_ORDER_ENTITY_ID": true
         }
     },
     "downloadable_link_purchased_item": {
@@ -82,14 +82,14 @@
             "updated_at": true
         },
         "index": {
-            "DOWNLOADABLE_LINK_PURCHASED_ITEM_LINK_HASH": true,
-            "DOWNLOADABLE_LINK_PURCHASED_ITEM_ORDER_ITEM_ID": true,
-            "DOWNLOADABLE_LINK_PURCHASED_ITEM_PURCHASED_ID": true
+            "IDX_DOWNLOADABLE_LINK_PURCHASED_ITEM_LINK_HASH": true,
+            "IDX_DOWNLOADABLE_LINK_PURCHASED_ITEM_ORDER_ITEM_ID": true,
+            "IDX_DOWNLOADABLE_LINK_PURCHASED_ITEM_PURCHASED_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "DL_LNK_PURCHASED_ITEM_PURCHASED_ID_DL_LNK_PURCHASED_PURCHASED_ID": true,
-            "DL_LNK_PURCHASED_ITEM_ORDER_ITEM_ID_SALES_ORDER_ITEM_ITEM_ID": true
+            "FK_46CC8E252307CE62F00A8F1887512A39": true,
+            "FK_DL_LNK_PURCHASED_ITEM_ORDER_ITEM_ID_SALES_ORDER_ITEM_ITEM_ID": true
         }
     },
     "downloadable_link_title": {
@@ -100,13 +100,13 @@
             "title": true
         },
         "index": {
-            "DOWNLOADABLE_LINK_TITLE_STORE_ID": true
+            "IDX_DOWNLOADABLE_LINK_TITLE_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "DOWNLOADABLE_LINK_TITLE_LINK_ID_DOWNLOADABLE_LINK_LINK_ID": true,
-            "DOWNLOADABLE_LINK_TITLE_STORE_ID_STORE_STORE_ID": true,
-            "DOWNLOADABLE_LINK_TITLE_LINK_ID_STORE_ID": true
+            "FK_DOWNLOADABLE_LINK_TITLE_LINK_ID_DOWNLOADABLE_LINK_LINK_ID": true,
+            "FK_DOWNLOADABLE_LINK_TITLE_STORE_ID_STORE_STORE_ID": true,
+            "UNQ_DOWNLOADABLE_LINK_TITLE_LINK_ID_STORE_ID": true
         }
     },
     "downloadable_sample": {
@@ -119,11 +119,11 @@
             "sort_order": true
         },
         "index": {
-            "DOWNLOADABLE_SAMPLE_PRODUCT_ID": true
+            "IDX_DOWNLOADABLE_SAMPLE_PRODUCT_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "DOWNLOADABLE_SAMPLE_PRODUCT_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID": true
+            "FK_DL_SAMPLE_PRD_ID_CAT_PRD_ENTT_ENTT_ID": true
         }
     },
     "downloadable_sample_title": {
@@ -134,13 +134,13 @@
             "title": true
         },
         "index": {
-            "DOWNLOADABLE_SAMPLE_TITLE_STORE_ID": true
+            "IDX_DOWNLOADABLE_SAMPLE_TITLE_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "DL_SAMPLE_TTL_SAMPLE_ID_DL_SAMPLE_SAMPLE_ID": true,
-            "DOWNLOADABLE_SAMPLE_TITLE_STORE_ID_STORE_STORE_ID": true,
-            "DOWNLOADABLE_SAMPLE_TITLE_SAMPLE_ID_STORE_ID": true
+            "FK_DL_SAMPLE_TTL_SAMPLE_ID_DL_SAMPLE_SAMPLE_ID": true,
+            "FK_DOWNLOADABLE_SAMPLE_TITLE_STORE_ID_STORE_STORE_ID": true,
+            "UNQ_DOWNLOADABLE_SAMPLE_TITLE_SAMPLE_ID_STORE_ID": true
         }
     },
     "catalog_product_index_price_downlod_idx": {

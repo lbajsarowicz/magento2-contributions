@@ -9,14 +9,14 @@
             "updated_at": true
         },
         "index": {
-            "PERSISTENT_SESSION_UPDATED_AT": true
+            "IDX_PERSISTENT_SESSION_UPDATED_AT": true
         },
         "constraint": {
             "PRIMARY": true,
-            "PERSISTENT_SESSION_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID": true,
-            "PERSISTENT_SESSION_WEBSITE_ID_STORE_WEBSITE_WEBSITE_ID": true,
-            "PERSISTENT_SESSION_KEY": true,
-            "PERSISTENT_SESSION_CUSTOMER_ID": true
+            "FK_PERSISTENT_SESSION_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID": true,
+            "FK_PERSISTENT_SESSION_WEBSITE_ID_STORE_WEBSITE_WEBSITE_ID": true,
+            "UNQ_PERSISTENT_SESSION_KEY": true,
+            "UNQ_PERSISTENT_SESSION_CUSTOMER_ID": true
         }
     },
     "quote": {

@@ -6,7 +6,7 @@
             "stock_name": true
         },
         "index": {
-            "CATALOGINVENTORY_STOCK_WEBSITE_ID": true
+            "IDX_CATALOGINVENTORY_STOCK_WEBSITE_ID": true
         },
         "constraint": {
             "PRIMARY": true
@@ -42,17 +42,15 @@
             "website_id": true
         },
         "index": {
-            "CATALOGINVENTORY_STOCK_ITEM_WEBSITE_ID": true,
-            "CATALOGINVENTORY_STOCK_ITEM_WEBSITE_ID_PRODUCT_ID": true,
-            "CATALOGINVENTORY_STOCK_ITEM_STOCK_ID": true
+            "IDX_CATALOGINVENTORY_STOCK_ITEM_WEBSITE_ID": true,
+            "IDX_CATALOGINVENTORY_STOCK_ITEM_WEBSITE_ID_PRODUCT_ID": true,
+            "IDX_CATALOGINVENTORY_STOCK_ITEM_STOCK_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "CATINV_STOCK_ITEM_PRD_ID_CAT_PRD_ENTT_ENTT_ID": true,
-            "CATINV_STOCK_ITEM_STOCK_ID_CATINV_STOCK_STOCK_ID": true,
-            "CATALOGINVENTORY_STOCK_ITEM_PRODUCT_ID_STOCK_ID": true,
-            "CATALOGINVENTORY_STOCK_ITEM_PRODUCT_ID_WEBSITE_ID": true,
-            "CATINV_STOCK_ITEM_PRD_ID_SEQUENCE_PRD_SEQUENCE_VAL": true
+            "FK_CATINV_STOCK_ITEM_PRD_ID_CAT_PRD_ENTT_ENTT_ID": true,
+            "FK_CATINV_STOCK_ITEM_STOCK_ID_CATINV_STOCK_STOCK_ID": true,
+            "UNQ_CATALOGINVENTORY_STOCK_ITEM_PRODUCT_ID_STOCK_ID": true
         }
     },
     "cataloginventory_stock_status": {
@@ -64,9 +62,9 @@
             "stock_status": true
         },
         "index": {
-            "CATALOGINVENTORY_STOCK_STATUS_STOCK_ID": true,
-            "CATALOGINVENTORY_STOCK_STATUS_WEBSITE_ID": true,
-            "CATALOGINVENTORY_STOCK_STATUS_STOCK_STATUS": true
+            "IDX_CATALOGINVENTORY_STOCK_STATUS_STOCK_ID": true,
+            "IDX_CATALOGINVENTORY_STOCK_STATUS_WEBSITE_ID": true,
+            "IDX_CATALOGINVENTORY_STOCK_STATUS_STOCK_STATUS": true
         },
         "constraint": {
             "PRIMARY": true
@@ -81,8 +79,8 @@
             "stock_status": true
         },
         "index": {
-            "CATALOGINVENTORY_STOCK_STATUS_IDX_STOCK_ID": true,
-            "CATALOGINVENTORY_STOCK_STATUS_IDX_WEBSITE_ID": true
+            "IDX_CATALOGINVENTORY_STOCK_STATUS_IDX_STOCK_ID": true,
+            "IDX_CATALOGINVENTORY_STOCK_STATUS_IDX_WEBSITE_ID": true
         },
         "constraint": {
             "PRIMARY": true
@@ -97,8 +95,8 @@
             "stock_status": true
         },
         "index": {
-            "CATALOGINVENTORY_STOCK_STATUS_TMP_STOCK_ID": true,
-            "CATALOGINVENTORY_STOCK_STATUS_TMP_WEBSITE_ID": true
+            "IDX_CATALOGINVENTORY_STOCK_STATUS_TMP_STOCK_ID": true,
+            "IDX_CATALOGINVENTORY_STOCK_STATUS_TMP_WEBSITE_ID": true
         },
         "constraint": {
             "PRIMARY": true
@@ -113,12 +111,9 @@
             "stock_status": true
         },
         "index": {
-            "CATALOGINVENTORY_STOCK_STATUS_REPLICA_STOCK_ID": true,
-            "CATALOGINVENTORY_STOCK_STATUS_REPLICA_WEBSITE_ID": true,
-            "CATALOGINVENTORY_STOCK_STATUS_REPLICA_STOCK_STATUS": true,
-            "CATALOGINVENTORY_STOCK_STATUS_STOCK_ID": true,
-            "CATALOGINVENTORY_STOCK_STATUS_WEBSITE_ID": true,
-            "CATALOGINVENTORY_STOCK_STATUS_STOCK_STATUS": true
+            "IDX_CATALOGINVENTORY_STOCK_STATUS_STOCK_ID": true,
+            "IDX_CATALOGINVENTORY_STOCK_STATUS_WEBSITE_ID": true,
+            "IDX_CATALOGINVENTORY_STOCK_STATUS_STOCK_STATUS": true
         },
         "constraint": {
             "PRIMARY": true

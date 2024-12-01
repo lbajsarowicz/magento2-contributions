@@ -9,8 +9,8 @@
         },
         "constraint": {
             "PRIMARY": true,
-            "GOOGLEOPTIMIZER_CODE_STORE_ID_STORE_STORE_ID": true,
-            "GOOGLEOPTIMIZER_CODE_STORE_ID_ENTITY_ID_ENTITY_TYPE": true
+            "FK_GOOGLEOPTIMIZER_CODE_STORE_ID_STORE_STORE_ID": true,
+            "UNQ_GOOGLEOPTIMIZER_CODE_STORE_ID_ENTITY_ID_ENTITY_TYPE": true
         }
     }
 }

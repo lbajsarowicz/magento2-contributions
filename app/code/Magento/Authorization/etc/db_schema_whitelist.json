@@ -11,8 +11,8 @@
             "role_name": true
         },
         "index": {
-            "AUTHORIZATION_ROLE_PARENT_ID_SORT_ORDER": true,
-            "AUTHORIZATION_ROLE_TREE_LEVEL": true
+            "IDX_AUTHORIZATION_ROLE_PARENT_ID_SORT_ORDER": true,
+            "IDX_AUTHORIZATION_ROLE_TREE_LEVEL": true
         },
         "constraint": {
             "PRIMARY": true
@@ -27,12 +27,12 @@
             "permission": true
         },
         "index": {
-            "AUTHORIZATION_RULE_RESOURCE_ID_ROLE_ID": true,
-            "AUTHORIZATION_RULE_ROLE_ID_RESOURCE_ID": true
+            "IDX_AUTHORIZATION_RULE_RESOURCE_ID_ROLE_ID": true,
+            "IDX_AUTHORIZATION_RULE_ROLE_ID_RESOURCE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "AUTHORIZATION_RULE_ROLE_ID_AUTHORIZATION_ROLE_ROLE_ID": true
+            "FK_AUTHORIZATION_RULE_ROLE_ID_AUTHORIZATION_ROLE_ROLE_ID": true
         }
     }
 }

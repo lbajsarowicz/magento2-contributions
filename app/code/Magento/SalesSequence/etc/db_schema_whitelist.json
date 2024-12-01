@@ -13,8 +13,8 @@
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_SEQUENCE_PROFILE_META_ID_SALES_SEQUENCE_META_META_ID": true,
-            "SALES_SEQUENCE_PROFILE_META_ID_PREFIX_SUFFIX": true
+            "FK_SALES_SEQUENCE_PROFILE_META_ID_SALES_SEQUENCE_META_META_ID": true,
+            "UNQ_SALES_SEQUENCE_PROFILE_META_ID_PREFIX_SUFFIX": true
         }
     },
     "sales_sequence_meta": {
@@ -26,7 +26,7 @@
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_SEQUENCE_META_ENTITY_TYPE_STORE_ID": true
+            "UNQ_SALES_SEQUENCE_META_ENTITY_TYPE_STORE_ID": true
         }
     }
 }

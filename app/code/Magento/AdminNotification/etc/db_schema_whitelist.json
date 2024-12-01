@@ -11,9 +11,9 @@
             "is_remove": true
         },
         "index": {
-            "ADMINNOTIFICATION_INBOX_SEVERITY": true,
-            "ADMINNOTIFICATION_INBOX_IS_READ": true,
-            "ADMINNOTIFICATION_INBOX_IS_REMOVE": true
+            "IDX_ADMINNOTIFICATION_INBOX_SEVERITY": true,
+            "IDX_ADMINNOTIFICATION_INBOX_IS_READ": true,
+            "IDX_ADMINNOTIFICATION_INBOX_IS_REMOVE": true
         },
         "constraint": {
             "PRIMARY": true

@@ -10,12 +10,12 @@
             "ip": true
         },
         "index": {
-            "ADMIN_USER_SESSION_SESSION_ID": true,
-            "ADMIN_USER_SESSION_USER_ID": true
+            "IDX_ADMIN_USER_SESSION_SESSION_ID": true,
+            "IDX_ADMIN_USER_SESSION_USER_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "ADMIN_USER_SESSION_USER_ID_ADMIN_USER_USER_ID": true
+            "FK_ADMIN_USER_SESSION_USER_ID_ADMIN_USER_USER_ID": true
         }
     },
     "password_reset_request_event": {
@@ -27,8 +27,8 @@
             "ip": true
         },
         "index": {
-            "PASSWORD_RESET_REQUEST_EVENT_ACCOUNT_REFERENCE": true,
-            "PASSWORD_RESET_REQUEST_EVENT_CREATED_AT": true
+            "IDX_PASSWORD_RESET_REQUEST_EVENT_ACCOUNT_REFERENCE": true,
+            "IDX_PASSWORD_RESET_REQUEST_EVENT_CREATED_AT": true
         },
         "constraint": {
             "PRIMARY": true
@@ -41,7 +41,7 @@
         },
         "constraint": {
             "PRIMARY": true,
-            "ADMIN_USER_EXPIRATION_USER_ID_ADMIN_USER_USER_ID": true
+            "FK_ADMIN_USER_EXPIRATION_USER_ID_ADMIN_USER_USER_ID": true
         }
     }
 }

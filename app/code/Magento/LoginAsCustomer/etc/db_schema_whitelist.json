@@ -7,7 +7,7 @@
             "created_at": true
         },
         "index": {
-            "LOGIN_AS_CUSTOMER_CREATED_AT": true
+            "IDX_LOGIN_AS_CUSTOMER_CREATED_AT": true
         },
         "constraint": {
             "PRIMARY": true

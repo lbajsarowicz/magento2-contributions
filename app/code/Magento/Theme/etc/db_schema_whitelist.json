@@ -27,7 +27,7 @@
         },
         "constraint": {
             "PRIMARY": true,
-            "THEME_FILE_THEME_ID_THEME_THEME_ID": true
+            "FK_THEME_FILE_THEME_ID_THEME_THEME_ID": true
         }
     },
     "design_change": {
@@ -39,11 +39,11 @@
             "date_to": true
         },
         "index": {
-            "DESIGN_CHANGE_STORE_ID": true
+            "IDX_DESIGN_CHANGE_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "DESIGN_CHANGE_STORE_ID_STORE_STORE_ID": true
+            "FK_DESIGN_CHANGE_STORE_ID_STORE_STORE_ID": true
         }
     }
 }

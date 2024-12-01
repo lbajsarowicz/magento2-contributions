@@ -7,8 +7,8 @@
         },
         "constraint": {
             "PRIMARY": true,
-            "RELEASE_NOTIFICATION_VIEWER_LOG_VIEWER_ID_ADMIN_USER_USER_ID": true,
-            "RELEASE_NOTIFICATION_VIEWER_LOG_VIEWER_ID": true
+            "FK_RELEASE_NOTIFICATION_VIEWER_LOG_VIEWER_ID_ADMIN_USER_USER_ID": true,
+            "UNQ_RELEASE_NOTIFICATION_VIEWER_LOG_VIEWER_ID": true
         }
     }
 }

@@ -12,13 +12,10 @@
             "stop_rules_processing": true,
             "sort_order": true,
             "simple_action": true,
-            "discount_amount": true,
-            "sub_is_enable": true,
-            "sub_simple_action": true,
-            "sub_discount_amount": true
+            "discount_amount": true
         },
         "index": {
-            "CATALOGRULE_IS_ACTIVE_SORT_ORDER_TO_DATE_FROM_DATE": true
+            "IDX_CATALOGRULE_IS_ACTIVE_SORT_ORDER_TO_DATE_FROM_DATE": true
         },
         "constraint": {
             "PRIMARY": true
@@ -36,20 +33,17 @@
             "action_amount": true,
             "action_stop": true,
             "sort_order": true,
-            "website_id": true,
-            "sub_simple_action": true,
-            "sub_discount_amount": true
+            "website_id": true
         },
         "index": {
-            "CATALOGRULE_PRODUCT_CUSTOMER_GROUP_ID": true,
-            "CATALOGRULE_PRODUCT_WEBSITE_ID": true,
-            "CATALOGRULE_PRODUCT_FROM_TIME": true,
-            "CATALOGRULE_PRODUCT_TO_TIME": true,
-            "CATALOGRULE_PRODUCT_PRODUCT_ID": true
+            "IDX_CATALOGRULE_PRODUCT_CUSTOMER_GROUP_ID": true,
+            "IDX_CATALOGRULE_PRODUCT_WEBSITE_ID": true,
+            "IDX_CATALOGRULE_PRODUCT_FROM_TIME": true,
+            "IDX_CATALOGRULE_PRODUCT_TO_TIME": true,
+            "IDX_CATALOGRULE_PRODUCT_PRODUCT_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "IDX_EAA51B56FF092A0DCB795D1CEF812B7B": true,
             "UNQ_EAA51B56FF092A0DCB795D1CEF812B7B": true
         }
     },
@@ -65,13 +59,13 @@
             "earliest_end_date": true
         },
         "index": {
-            "CATALOGRULE_PRODUCT_PRICE_CUSTOMER_GROUP_ID": true,
-            "CATALOGRULE_PRODUCT_PRICE_WEBSITE_ID": true,
-            "CATALOGRULE_PRODUCT_PRICE_PRODUCT_ID": true
+            "IDX_CATALOGRULE_PRODUCT_PRICE_CUSTOMER_GROUP_ID": true,
+            "IDX_CATALOGRULE_PRODUCT_PRICE_WEBSITE_ID": true,
+            "IDX_CATALOGRULE_PRODUCT_PRICE_PRODUCT_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "CATRULE_PRD_PRICE_RULE_DATE_WS_ID_CSTR_GROUP_ID_PRD_ID": true
+            "UNQ_CATRULE_PRD_PRICE_RULE_DATE_WS_ID_CSTR_GROUP_ID_PRD_ID": true
         }
     },
     "catalogrule_group_website": {
@@ -81,14 +75,11 @@
             "website_id": true
         },
         "index": {
-            "CATALOGRULE_GROUP_WEBSITE_CUSTOMER_GROUP_ID": true,
-            "CATALOGRULE_GROUP_WEBSITE_WEBSITE_ID": true
+            "IDX_CATALOGRULE_GROUP_WEBSITE_CUSTOMER_GROUP_ID": true,
+            "IDX_CATALOGRULE_GROUP_WEBSITE_WEBSITE_ID": true
         },
         "constraint": {
-            "PRIMARY": true,
-            "CATRULE_GROUP_WS_CSTR_GROUP_ID_CSTR_GROUP_CSTR_GROUP_ID": true,
-            "CATALOGRULE_GROUP_WEBSITE_RULE_ID_CATALOGRULE_RULE_ID": true,
-            "CATALOGRULE_GROUP_WEBSITE_WEBSITE_ID_STORE_WEBSITE_WEBSITE_ID": true
+            "PRIMARY": true
         }
     },
     "catalogrule_website": {
@@ -97,12 +88,12 @@
             "website_id": true
         },
         "index": {
-            "CATALOGRULE_WEBSITE_WEBSITE_ID": true
+            "IDX_CATALOGRULE_WEBSITE_WEBSITE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "CATALOGRULE_WEBSITE_RULE_ID_CATALOGRULE_RULE_ID": true,
-            "CATALOGRULE_WEBSITE_WEBSITE_ID_STORE_WEBSITE_WEBSITE_ID": true
+            "FK_CATALOGRULE_WEBSITE_RULE_ID_CATALOGRULE_RULE_ID": true,
+            "FK_CATALOGRULE_WEBSITE_WEBSITE_ID_STORE_WEBSITE_WEBSITE_ID": true
         }
     },
     "catalogrule_customer_group": {
@@ -111,12 +102,12 @@
             "customer_group_id": true
         },
         "index": {
-            "CATALOGRULE_CUSTOMER_GROUP_CUSTOMER_GROUP_ID": true
+            "IDX_CATALOGRULE_CUSTOMER_GROUP_CUSTOMER_GROUP_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "CATALOGRULE_CUSTOMER_GROUP_RULE_ID_CATALOGRULE_RULE_ID": true,
-            "CATRULE_CSTR_GROUP_CSTR_GROUP_ID_CSTR_GROUP_CSTR_GROUP_ID": true
+            "FK_CATALOGRULE_CUSTOMER_GROUP_RULE_ID_CATALOGRULE_RULE_ID": true,
+            "FK_CATRULE_CSTR_GROUP_CSTR_GROUP_ID_CSTR_GROUP_CSTR_GROUP_ID": true
         }
     },
     "catalogrule_product_replica": {
@@ -134,20 +125,14 @@
             "website_id": true
         },
         "index": {
-            "CATALOGRULE_PRODUCT_REPLICA_CUSTOMER_GROUP_ID": true,
-            "CATALOGRULE_PRODUCT_REPLICA_WEBSITE_ID": true,
-            "CATALOGRULE_PRODUCT_REPLICA_FROM_TIME": true,
-            "CATALOGRULE_PRODUCT_REPLICA_TO_TIME": true,
-            "CATALOGRULE_PRODUCT_REPLICA_PRODUCT_ID": true,
-            "CATALOGRULE_PRODUCT_CUSTOMER_GROUP_ID": true,
-            "CATALOGRULE_PRODUCT_WEBSITE_ID": true,
-            "CATALOGRULE_PRODUCT_FROM_TIME": true,
-            "CATALOGRULE_PRODUCT_TO_TIME": true,
-            "CATALOGRULE_PRODUCT_PRODUCT_ID": true
+            "IDX_CATALOGRULE_PRODUCT_CUSTOMER_GROUP_ID": true,
+            "IDX_CATALOGRULE_PRODUCT_WEBSITE_ID": true,
+            "IDX_CATALOGRULE_PRODUCT_FROM_TIME": true,
+            "IDX_CATALOGRULE_PRODUCT_TO_TIME": true,
+            "IDX_CATALOGRULE_PRODUCT_PRODUCT_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "IDX_EAA51B56FF092A0DCB795D1CEF812B7B": true,
             "UNQ_EAA51B56FF092A0DCB795D1CEF812B7B": true
         }
     },
@@ -163,17 +148,13 @@
             "earliest_end_date": true
         },
         "index": {
-            "CATALOGRULE_PRODUCT_PRICE_REPLICA_CUSTOMER_GROUP_ID": true,
-            "CATALOGRULE_PRODUCT_PRICE_REPLICA_WEBSITE_ID": true,
-            "CATALOGRULE_PRODUCT_PRICE_REPLICA_PRODUCT_ID": true,
-            "CATALOGRULE_PRODUCT_PRICE_CUSTOMER_GROUP_ID": true,
-            "CATALOGRULE_PRODUCT_PRICE_WEBSITE_ID": true,
-            "CATALOGRULE_PRODUCT_PRICE_PRODUCT_ID": true
+            "IDX_CATALOGRULE_PRODUCT_PRICE_CUSTOMER_GROUP_ID": true,
+            "IDX_CATALOGRULE_PRODUCT_PRICE_WEBSITE_ID": true,
+            "IDX_CATALOGRULE_PRODUCT_PRICE_PRODUCT_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "CATRULE_PRD_PRICE_REPLICA_RULE_DATE_WS_ID_CSTR_GROUP_ID_PRD_ID": true,
-            "CATRULE_PRD_PRICE_RULE_DATE_WS_ID_CSTR_GROUP_ID_PRD_ID": true
+            "UNQ_CATRULE_PRD_PRICE_RULE_DATE_WS_ID_CSTR_GROUP_ID_PRD_ID": true
         }
     },
     "catalogrule_group_website_replica": {
@@ -183,10 +164,8 @@
             "website_id": true
         },
         "index": {
-            "CATALOGRULE_GROUP_WEBSITE_REPLICA_CUSTOMER_GROUP_ID": true,
-            "CATALOGRULE_GROUP_WEBSITE_REPLICA_WEBSITE_ID": true,
-            "CATALOGRULE_GROUP_WEBSITE_CUSTOMER_GROUP_ID": true,
-            "CATALOGRULE_GROUP_WEBSITE_WEBSITE_ID": true
+            "IDX_CATALOGRULE_GROUP_WEBSITE_CUSTOMER_GROUP_ID": true,
+            "IDX_CATALOGRULE_GROUP_WEBSITE_WEBSITE_ID": true
         },
         "constraint": {
             "PRIMARY": true

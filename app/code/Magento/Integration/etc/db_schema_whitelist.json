@@ -11,13 +11,13 @@
             "rejected_callback_url": true
         },
         "index": {
-            "OAUTH_CONSUMER_CREATED_AT": true,
-            "OAUTH_CONSUMER_UPDATED_AT": true
+            "IDX_OAUTH_CONSUMER_CREATED_AT": true,
+            "IDX_OAUTH_CONSUMER_UPDATED_AT": true
         },
         "constraint": {
             "PRIMARY": true,
-            "OAUTH_CONSUMER_KEY": true,
-            "OAUTH_CONSUMER_SECRET": true
+            "UNQ_OAUTH_CONSUMER_KEY": true,
+            "UNQ_OAUTH_CONSUMER_SECRET": true
         }
     },
     "oauth_token": {
@@ -37,15 +37,15 @@
             "created_at": true
         },
         "index": {
-            "OAUTH_TOKEN_CONSUMER_ID": true,
-            "OAUTH_TOKEN_CREATED_AT": true
+            "IDX_OAUTH_TOKEN_CONSUMER_ID": true,
+            "IDX_OAUTH_TOKEN_CREATED_AT": true
         },
         "constraint": {
             "PRIMARY": true,
-            "OAUTH_TOKEN_ADMIN_ID_ADMIN_USER_USER_ID": true,
-            "OAUTH_TOKEN_CONSUMER_ID_OAUTH_CONSUMER_ENTITY_ID": true,
-            "OAUTH_TOKEN_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID": true,
-            "OAUTH_TOKEN_TOKEN": true
+            "FK_OAUTH_TOKEN_ADMIN_ID_ADMIN_USER_USER_ID": true,
+            "FK_OAUTH_TOKEN_CONSUMER_ID_OAUTH_CONSUMER_ENTITY_ID": true,
+            "FK_OAUTH_TOKEN_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID": true,
+            "UNQ_OAUTH_TOKEN_TOKEN": true
         }
     },
     "oauth_nonce": {
@@ -54,13 +54,12 @@
             "timestamp": true,
             "consumer_id": true
         },
-        "constraint": {
-            "PRIMARY": true,
-            "OAUTH_NONCE_CONSUMER_ID_OAUTH_CONSUMER_ENTITY_ID": true,
-            "OAUTH_NONCE_NONCE_CONSUMER_ID": true
-        },
         "index": {
-            "OAUTH_NONCE_TIMESTAMP": true
+            "IDX_OAUTH_NONCE_TIMESTAMP": true
+        },
+        "constraint": {
+            "FK_OAUTH_NONCE_CONSUMER_ID_OAUTH_CONSUMER_ENTITY_ID": true,
+            "PRIMARY": true
         }
     },
     "integration": {
@@ -78,9 +77,9 @@
         },
         "constraint": {
             "PRIMARY": true,
-            "INTEGRATION_CONSUMER_ID_OAUTH_CONSUMER_ENTITY_ID": true,
-            "INTEGRATION_NAME": true,
-            "INTEGRATION_CONSUMER_ID": true
+            "FK_INTEGRATION_CONSUMER_ID_OAUTH_CONSUMER_ENTITY_ID": true,
+            "UNQ_INTEGRATION_NAME": true,
+            "UNQ_INTEGRATION_CONSUMER_ID": true
         }
     },
     "oauth_token_request_log": {
@@ -93,7 +92,7 @@
         },
         "constraint": {
             "PRIMARY": true,
-            "OAUTH_TOKEN_REQUEST_LOG_USER_NAME_USER_TYPE": true
+            "UNQ_OAUTH_TOKEN_REQUEST_LOG_USER_NAME_USER_TYPE": true
         }
     }
 }

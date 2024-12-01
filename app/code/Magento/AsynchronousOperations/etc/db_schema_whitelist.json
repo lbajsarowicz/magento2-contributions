@@ -10,14 +10,12 @@
             "start_time": true
         },
         "index": {
-            "MAGENTO_BULK_USER_ID_ADMIN_USER_USER_ID": true,
-            "MAGENTO_BULK_USER_ID": true,
-            "MAGENTO_BULK_START_TIME": true
+            "IDX_MAGENTO_BULK_USER_ID": true,
+            "IDX_MAGENTO_BULK_START_TIME": true
         },
         "constraint": {
             "PRIMARY": true,
-            "MAGENTO_BULK_UUID": true,
-            "MAGENTO_BULK_USER_ID_ADMIN_USER_USER_ID": true
+            "UNQ_MAGENTO_BULK_UUID": true
         }
     },
     "magento_operation": {
@@ -34,13 +32,12 @@
             "started_at": true
         },
         "index": {
-            "MAGENTO_OPERATION_BULK_UUID_ERROR_CODE": true,
-            "MAGENTO_OPERATION_STATUS_STARTED_AT": true
+            "IDX_MAGENTO_OPERATION_BULK_UUID_ERROR_CODE": true,
+            "IDX_MAGENTO_OPERATION_STATUS_STARTED_AT": true
         },
         "constraint": {
             "PRIMARY": true,
-            "MAGENTO_OPERATION_BULK_UUID_MAGENTO_BULK_UUID": true,
-            "UUID": true
+            "FK_MAGENTO_OPERATION_BULK_UUID_MAGENTO_BULK_UUID": true
         }
     },
     "magento_acknowledged_bulk": {
@@ -50,8 +47,8 @@
         },
         "constraint": {
             "PRIMARY": true,
-            "MAGENTO_ACKNOWLEDGED_BULK_BULK_UUID_MAGENTO_BULK_UUID": true,
-            "MAGENTO_ACKNOWLEDGED_BULK_BULK_UUID": true
+            "FK_MAGENTO_ACKNOWLEDGED_BULK_BULK_UUID_MAGENTO_BULK_UUID": true,
+            "UNQ_MAGENTO_ACKNOWLEDGED_BULK_BULK_UUID": true
         }
     }
 }

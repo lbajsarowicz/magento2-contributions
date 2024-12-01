@@ -10,7 +10,7 @@
         },
         "constraint": {
             "PRIMARY": true,
-            "CORE_CONFIG_DATA_SCOPE_SCOPE_ID_PATH": true
+            "UNQ_CORE_CONFIG_DATA_SCOPE_SCOPE_ID_PATH": true
         }
     }
 }

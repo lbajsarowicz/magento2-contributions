@@ -23,7 +23,7 @@
         },
         "constraint": {
             "PRIMARY": true,
-            "ADMIN_USER_USERNAME": true
+            "UNQ_ADMIN_USER_USERNAME": true
         }
     },
     "admin_passwords": {
@@ -35,11 +35,11 @@
             "last_updated": true
         },
         "index": {
-            "ADMIN_PASSWORDS_USER_ID": true
+            "IDX_ADMIN_PASSWORDS_USER_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "ADMIN_PASSWORDS_USER_ID_ADMIN_USER_USER_ID": true
+            "FK_ADMIN_PASSWORDS_USER_ID_ADMIN_USER_USER_ID": true
         }
     }
 }

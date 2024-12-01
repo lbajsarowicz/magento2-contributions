@@ -139,23 +139,23 @@
             "coupon_rule_name": true
         },
         "index": {
-            "SALES_ORDER_STATUS": true,
-            "SALES_ORDER_STATE": true,
-            "SALES_ORDER_STORE_ID": true,
-            "SALES_ORDER_STORE_ID_STATE_CREATED_AT": true,
-            "SALES_ORDER_CREATED_AT": true,
-            "SALES_ORDER_CUSTOMER_ID": true,
-            "SALES_ORDER_EXT_ORDER_ID": true,
-            "SALES_ORDER_QUOTE_ID": true,
-            "SALES_ORDER_UPDATED_AT": true,
-            "SALES_ORDER_SEND_EMAIL": true,
-            "SALES_ORDER_EMAIL_SENT": true
+            "IDX_SALES_ORDER_STATUS": true,
+            "IDX_SALES_ORDER_STATE": true,
+            "IDX_SALES_ORDER_STORE_ID": true,
+            "IDX_SALES_ORDER_CREATED_AT": true,
+            "IDX_SALES_ORDER_CUSTOMER_ID": true,
+            "IDX_SALES_ORDER_EXT_ORDER_ID": true,
+            "IDX_SALES_ORDER_QUOTE_ID": true,
+            "IDX_SALES_ORDER_UPDATED_AT": true,
+            "IDX_SALES_ORDER_SEND_EMAIL": true,
+            "IDX_SALES_ORDER_EMAIL_SENT": true,
+            "IDX_SALES_ORDER_STORE_ID_STATE_CREATED_AT": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_ORDER_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID": true,
-            "SALES_ORDER_STORE_ID_STORE_STORE_ID": true,
-            "SALES_ORDER_INCREMENT_ID_STORE_ID": true
+            "FK_SALES_ORDER_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID": true,
+            "FK_SALES_ORDER_STORE_ID_STORE_STORE_ID": true,
+            "UNQ_SALES_ORDER_INCREMENT_ID_STORE_ID": true
         }
     },
     "sales_order_grid": {
@@ -188,22 +188,22 @@
             "total_refunded": true
         },
         "index": {
-            "SALES_ORDER_GRID_STATUS": true,
-            "SALES_ORDER_GRID_STORE_ID": true,
-            "SALES_ORDER_GRID_BASE_GRAND_TOTAL": true,
-            "SALES_ORDER_GRID_BASE_TOTAL_PAID": true,
-            "SALES_ORDER_GRID_GRAND_TOTAL": true,
-            "SALES_ORDER_GRID_TOTAL_PAID": true,
-            "SALES_ORDER_GRID_SHIPPING_NAME": true,
-            "SALES_ORDER_GRID_BILLING_NAME": true,
-            "SALES_ORDER_GRID_CREATED_AT": true,
-            "SALES_ORDER_GRID_CUSTOMER_ID": true,
-            "SALES_ORDER_GRID_UPDATED_AT": true,
+            "IDX_SALES_ORDER_GRID_STATUS": true,
+            "IDX_SALES_ORDER_GRID_STORE_ID": true,
+            "IDX_SALES_ORDER_GRID_BASE_GRAND_TOTAL": true,
+            "IDX_SALES_ORDER_GRID_BASE_TOTAL_PAID": true,
+            "IDX_SALES_ORDER_GRID_GRAND_TOTAL": true,
+            "IDX_SALES_ORDER_GRID_TOTAL_PAID": true,
+            "IDX_SALES_ORDER_GRID_SHIPPING_NAME": true,
+            "IDX_SALES_ORDER_GRID_BILLING_NAME": true,
+            "IDX_SALES_ORDER_GRID_CREATED_AT": true,
+            "IDX_SALES_ORDER_GRID_CUSTOMER_ID": true,
+            "IDX_SALES_ORDER_GRID_UPDATED_AT": true,
             "FTI_65B9E9925EC58F0C7C2E2F6379C233E7": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_ORDER_GRID_INCREMENT_ID_STORE_ID": true
+            "UNQ_SALES_ORDER_GRID_INCREMENT_ID_STORE_ID": true
         }
     },
     "sales_order_address": {
@@ -236,11 +236,11 @@
             "vat_request_success": true
         },
         "index": {
-            "SALES_ORDER_ADDRESS_PARENT_ID": true
+            "IDX_SALES_ORDER_ADDRESS_PARENT_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_ORDER_ADDRESS_PARENT_ID_SALES_ORDER_ENTITY_ID": true
+            "FK_SALES_ORDER_ADDRESS_PARENT_ID_SALES_ORDER_ENTITY_ID": true
         }
     },
     "sales_order_status_history": {
@@ -255,12 +255,12 @@
             "entity_name": true
         },
         "index": {
-            "SALES_ORDER_STATUS_HISTORY_PARENT_ID": true,
-            "SALES_ORDER_STATUS_HISTORY_CREATED_AT": true
+            "IDX_SALES_ORDER_STATUS_HISTORY_PARENT_ID": true,
+            "IDX_SALES_ORDER_STATUS_HISTORY_CREATED_AT": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_ORDER_STATUS_HISTORY_PARENT_ID_SALES_ORDER_ENTITY_ID": true
+            "FK_SALES_ORDER_STATUS_HISTORY_PARENT_ID_SALES_ORDER_ENTITY_ID": true
         }
     },
     "sales_order_item": {
@@ -335,13 +335,13 @@
             "base_discount_refunded": true
         },
         "index": {
-            "SALES_ORDER_ITEM_ORDER_ID": true,
-            "SALES_ORDER_ITEM_STORE_ID": true
+            "IDX_SALES_ORDER_ITEM_ORDER_ID": true,
+            "IDX_SALES_ORDER_ITEM_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_ORDER_ITEM_ORDER_ID_SALES_ORDER_ENTITY_ID": true,
-            "SALES_ORDER_ITEM_STORE_ID_STORE_STORE_ID": true
+            "FK_SALES_ORDER_ITEM_ORDER_ID_SALES_ORDER_ENTITY_ID": true,
+            "FK_SALES_ORDER_ITEM_STORE_ID_STORE_STORE_ID": true
         }
     },
     "sales_order_payment": {
@@ -402,11 +402,11 @@
             "additional_information": true
         },
         "index": {
-            "SALES_ORDER_PAYMENT_PARENT_ID": true
+            "IDX_SALES_ORDER_PAYMENT_PARENT_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_ORDER_PAYMENT_PARENT_ID_SALES_ORDER_ENTITY_ID": true
+            "FK_SALES_ORDER_PAYMENT_PARENT_ID_SALES_ORDER_ENTITY_ID": true
         }
     },
     "sales_shipment": {
@@ -431,19 +431,19 @@
             "customer_note_notify": true
         },
         "index": {
-            "SALES_SHIPMENT_STORE_ID": true,
-            "SALES_SHIPMENT_TOTAL_QTY": true,
-            "SALES_SHIPMENT_ORDER_ID": true,
-            "SALES_SHIPMENT_CREATED_AT": true,
-            "SALES_SHIPMENT_UPDATED_AT": true,
-            "SALES_SHIPMENT_SEND_EMAIL": true,
-            "SALES_SHIPMENT_EMAIL_SENT": true
+            "IDX_SALES_SHIPMENT_STORE_ID": true,
+            "IDX_SALES_SHIPMENT_TOTAL_QTY": true,
+            "IDX_SALES_SHIPMENT_ORDER_ID": true,
+            "IDX_SALES_SHIPMENT_CREATED_AT": true,
+            "IDX_SALES_SHIPMENT_UPDATED_AT": true,
+            "IDX_SALES_SHIPMENT_SEND_EMAIL": true,
+            "IDX_SALES_SHIPMENT_EMAIL_SENT": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_SHIPMENT_ORDER_ID_SALES_ORDER_ENTITY_ID": true,
-            "SALES_SHIPMENT_STORE_ID_STORE_STORE_ID": true,
-            "SALES_SHIPMENT_INCREMENT_ID_STORE_ID": true
+            "FK_SALES_SHIPMENT_ORDER_ID_SALES_ORDER_ENTITY_ID": true,
+            "FK_SALES_SHIPMENT_STORE_ID_STORE_STORE_ID": true,
+            "UNQ_SALES_SHIPMENT_INCREMENT_ID_STORE_ID": true
         }
     },
     "sales_shipment_grid": {
@@ -470,22 +470,22 @@
             "updated_at": true
         },
         "index": {
-            "SALES_SHIPMENT_GRID_STORE_ID": true,
-            "SALES_SHIPMENT_GRID_TOTAL_QTY": true,
-            "SALES_SHIPMENT_GRID_ORDER_INCREMENT_ID": true,
-            "SALES_SHIPMENT_GRID_SHIPMENT_STATUS": true,
-            "SALES_SHIPMENT_GRID_ORDER_STATUS": true,
-            "SALES_SHIPMENT_GRID_CREATED_AT": true,
-            "SALES_SHIPMENT_GRID_UPDATED_AT": true,
-            "SALES_SHIPMENT_GRID_ORDER_CREATED_AT": true,
-            "SALES_SHIPMENT_GRID_SHIPPING_NAME": true,
-            "SALES_SHIPMENT_GRID_BILLING_NAME": true,
-            "SALES_SHIPMENT_GRID_ORDER_ID": true,
+            "IDX_SALES_SHIPMENT_GRID_STORE_ID": true,
+            "IDX_SALES_SHIPMENT_GRID_TOTAL_QTY": true,
+            "IDX_SALES_SHIPMENT_GRID_ORDER_INCREMENT_ID": true,
+            "IDX_SALES_SHIPMENT_GRID_SHIPMENT_STATUS": true,
+            "IDX_SALES_SHIPMENT_GRID_ORDER_STATUS": true,
+            "IDX_SALES_SHIPMENT_GRID_CREATED_AT": true,
+            "IDX_SALES_SHIPMENT_GRID_UPDATED_AT": true,
+            "IDX_SALES_SHIPMENT_GRID_ORDER_CREATED_AT": true,
+            "IDX_SALES_SHIPMENT_GRID_SHIPPING_NAME": true,
+            "IDX_SALES_SHIPMENT_GRID_BILLING_NAME": true,
+            "IDX_SALES_SHIPMENT_GRID_ORDER_ID": true,
             "FTI_086B40C8955F167B8EA76653437879B4": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_SHIPMENT_GRID_INCREMENT_ID_STORE_ID": true
+            "UNQ_SALES_SHIPMENT_GRID_INCREMENT_ID_STORE_ID": true
         }
     },
     "sales_shipment_item": {
@@ -504,11 +504,11 @@
             "sku": true
         },
         "index": {
-            "SALES_SHIPMENT_ITEM_PARENT_ID": true
+            "IDX_SALES_SHIPMENT_ITEM_PARENT_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_SHIPMENT_ITEM_PARENT_ID_SALES_SHIPMENT_ENTITY_ID": true
+            "FK_SALES_SHIPMENT_ITEM_PARENT_ID_SALES_SHIPMENT_ENTITY_ID": true
         }
     },
     "sales_shipment_track": {
@@ -526,13 +526,13 @@
             "updated_at": true
         },
         "index": {
-            "SALES_SHIPMENT_TRACK_PARENT_ID": true,
-            "SALES_SHIPMENT_TRACK_ORDER_ID": true,
-            "SALES_SHIPMENT_TRACK_CREATED_AT": true
+            "IDX_SALES_SHIPMENT_TRACK_PARENT_ID": true,
+            "IDX_SALES_SHIPMENT_TRACK_ORDER_ID": true,
+            "IDX_SALES_SHIPMENT_TRACK_CREATED_AT": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_SHIPMENT_TRACK_PARENT_ID_SALES_SHIPMENT_ENTITY_ID": true
+            "FK_SALES_SHIPMENT_TRACK_PARENT_ID_SALES_SHIPMENT_ENTITY_ID": true
         }
     },
     "sales_shipment_comment": {
@@ -545,12 +545,12 @@
             "created_at": true
         },
         "index": {
-            "SALES_SHIPMENT_COMMENT_CREATED_AT": true,
-            "SALES_SHIPMENT_COMMENT_PARENT_ID": true
+            "IDX_SALES_SHIPMENT_COMMENT_CREATED_AT": true,
+            "IDX_SALES_SHIPMENT_COMMENT_PARENT_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_SHIPMENT_COMMENT_PARENT_ID_SALES_SHIPMENT_ENTITY_ID": true
+            "FK_SALES_SHIPMENT_COMMENT_PARENT_ID_SALES_SHIPMENT_ENTITY_ID": true
         }
     },
     "sales_invoice": {
@@ -604,20 +604,20 @@
             "customer_note_notify": true
         },
         "index": {
-            "SALES_INVOICE_STORE_ID": true,
-            "SALES_INVOICE_GRAND_TOTAL": true,
-            "SALES_INVOICE_ORDER_ID": true,
-            "SALES_INVOICE_STATE": true,
-            "SALES_INVOICE_CREATED_AT": true,
-            "SALES_INVOICE_UPDATED_AT": true,
-            "SALES_INVOICE_SEND_EMAIL": true,
-            "SALES_INVOICE_EMAIL_SENT": true
+            "IDX_SALES_INVOICE_STORE_ID": true,
+            "IDX_SALES_INVOICE_GRAND_TOTAL": true,
+            "IDX_SALES_INVOICE_ORDER_ID": true,
+            "IDX_SALES_INVOICE_STATE": true,
+            "IDX_SALES_INVOICE_CREATED_AT": true,
+            "IDX_SALES_INVOICE_UPDATED_AT": true,
+            "IDX_SALES_INVOICE_SEND_EMAIL": true,
+            "IDX_SALES_INVOICE_EMAIL_SENT": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_INVOICE_ORDER_ID_SALES_ORDER_ENTITY_ID": true,
-            "SALES_INVOICE_STORE_ID_STORE_STORE_ID": true,
-            "SALES_INVOICE_INCREMENT_ID_STORE_ID": true
+            "FK_SALES_INVOICE_ORDER_ID_SALES_ORDER_ENTITY_ID": true,
+            "FK_SALES_INVOICE_STORE_ID_STORE_STORE_ID": true,
+            "UNQ_SALES_INVOICE_INCREMENT_ID_STORE_ID": true
         }
     },
     "sales_invoice_grid": {
@@ -650,21 +650,21 @@
             "base_grand_total": true
         },
         "index": {
-            "SALES_INVOICE_GRID_STORE_ID": true,
-            "SALES_INVOICE_GRID_GRAND_TOTAL": true,
-            "SALES_INVOICE_GRID_ORDER_ID": true,
-            "SALES_INVOICE_GRID_STATE": true,
-            "SALES_INVOICE_GRID_ORDER_INCREMENT_ID": true,
-            "SALES_INVOICE_GRID_CREATED_AT": true,
-            "SALES_INVOICE_GRID_UPDATED_AT": true,
-            "SALES_INVOICE_GRID_ORDER_CREATED_AT": true,
-            "SALES_INVOICE_GRID_BILLING_NAME": true,
+            "IDX_SALES_INVOICE_GRID_STORE_ID": true,
+            "IDX_SALES_INVOICE_GRID_GRAND_TOTAL": true,
+            "IDX_SALES_INVOICE_GRID_ORDER_ID": true,
+            "IDX_SALES_INVOICE_GRID_STATE": true,
+            "IDX_SALES_INVOICE_GRID_ORDER_INCREMENT_ID": true,
+            "IDX_SALES_INVOICE_GRID_CREATED_AT": true,
+            "IDX_SALES_INVOICE_GRID_UPDATED_AT": true,
+            "IDX_SALES_INVOICE_GRID_ORDER_CREATED_AT": true,
+            "IDX_SALES_INVOICE_GRID_BILLING_NAME": true,
             "FTI_95D9C924DD6A8734EB8B5D01D60F90DE": true,
-            "SALES_INVOICE_GRID_BASE_GRAND_TOTAL": true
+            "IDX_SALES_INVOICE_GRID_BASE_GRAND_TOTAL": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_INVOICE_GRID_INCREMENT_ID_STORE_ID": true
+            "UNQ_SALES_INVOICE_GRID_INCREMENT_ID_STORE_ID": true
         }
     },
     "sales_invoice_item": {
@@ -696,11 +696,11 @@
             "tax_ratio": true
         },
         "index": {
-            "SALES_INVOICE_ITEM_PARENT_ID": true
+            "IDX_SALES_INVOICE_ITEM_PARENT_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_INVOICE_ITEM_PARENT_ID_SALES_INVOICE_ENTITY_ID": true
+            "FK_SALES_INVOICE_ITEM_PARENT_ID_SALES_INVOICE_ENTITY_ID": true
         }
     },
     "sales_invoice_comment": {
@@ -713,12 +713,12 @@
             "created_at": true
         },
         "index": {
-            "SALES_INVOICE_COMMENT_CREATED_AT": true,
-            "SALES_INVOICE_COMMENT_PARENT_ID": true
+            "IDX_SALES_INVOICE_COMMENT_CREATED_AT": true,
+            "IDX_SALES_INVOICE_COMMENT_PARENT_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_INVOICE_COMMENT_PARENT_ID_SALES_INVOICE_ENTITY_ID": true
+            "FK_SALES_INVOICE_COMMENT_PARENT_ID_SALES_INVOICE_ENTITY_ID": true
         }
     },
     "sales_creditmemo": {
@@ -776,20 +776,20 @@
             "customer_note_notify": true
         },
         "index": {
-            "SALES_CREDITMEMO_STORE_ID": true,
-            "SALES_CREDITMEMO_ORDER_ID": true,
-            "SALES_CREDITMEMO_CREDITMEMO_STATUS": true,
-            "SALES_CREDITMEMO_STATE": true,
-            "SALES_CREDITMEMO_CREATED_AT": true,
-            "SALES_CREDITMEMO_UPDATED_AT": true,
-            "SALES_CREDITMEMO_SEND_EMAIL": true,
-            "SALES_CREDITMEMO_EMAIL_SENT": true
+            "IDX_SALES_CREDITMEMO_STORE_ID": true,
+            "IDX_SALES_CREDITMEMO_ORDER_ID": true,
+            "IDX_SALES_CREDITMEMO_CREDITMEMO_STATUS": true,
+            "IDX_SALES_CREDITMEMO_STATE": true,
+            "IDX_SALES_CREDITMEMO_CREATED_AT": true,
+            "IDX_SALES_CREDITMEMO_UPDATED_AT": true,
+            "IDX_SALES_CREDITMEMO_SEND_EMAIL": true,
+            "IDX_SALES_CREDITMEMO_EMAIL_SENT": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_CREDITMEMO_ORDER_ID_SALES_ORDER_ENTITY_ID": true,
-            "SALES_CREDITMEMO_STORE_ID_STORE_STORE_ID": true,
-            "SALES_CREDITMEMO_INCREMENT_ID_STORE_ID": true
+            "FK_SALES_CREDITMEMO_ORDER_ID_SALES_ORDER_ENTITY_ID": true,
+            "FK_SALES_CREDITMEMO_STORE_ID_STORE_STORE_ID": true,
+            "UNQ_SALES_CREDITMEMO_INCREMENT_ID_STORE_ID": true
         }
     },
     "sales_creditmemo_grid": {
@@ -820,22 +820,22 @@
             "order_base_grand_total": true
         },
         "index": {
-            "SALES_CREDITMEMO_GRID_ORDER_INCREMENT_ID": true,
-            "SALES_CREDITMEMO_GRID_CREATED_AT": true,
-            "SALES_CREDITMEMO_GRID_UPDATED_AT": true,
-            "SALES_CREDITMEMO_GRID_ORDER_CREATED_AT": true,
-            "SALES_CREDITMEMO_GRID_STATE": true,
-            "SALES_CREDITMEMO_GRID_BILLING_NAME": true,
-            "SALES_CREDITMEMO_GRID_ORDER_STATUS": true,
-            "SALES_CREDITMEMO_GRID_BASE_GRAND_TOTAL": true,
-            "SALES_CREDITMEMO_GRID_STORE_ID": true,
-            "SALES_CREDITMEMO_GRID_ORDER_BASE_GRAND_TOTAL": true,
-            "SALES_CREDITMEMO_GRID_ORDER_ID": true,
+            "IDX_SALES_CREDITMEMO_GRID_ORDER_INCREMENT_ID": true,
+            "IDX_SALES_CREDITMEMO_GRID_CREATED_AT": true,
+            "IDX_SALES_CREDITMEMO_GRID_UPDATED_AT": true,
+            "IDX_SALES_CREDITMEMO_GRID_ORDER_CREATED_AT": true,
+            "IDX_SALES_CREDITMEMO_GRID_STATE": true,
+            "IDX_SALES_CREDITMEMO_GRID_BILLING_NAME": true,
+            "IDX_SALES_CREDITMEMO_GRID_ORDER_STATUS": true,
+            "IDX_SALES_CREDITMEMO_GRID_BASE_GRAND_TOTAL": true,
+            "IDX_SALES_CREDITMEMO_GRID_STORE_ID": true,
+            "IDX_SALES_CREDITMEMO_GRID_ORDER_BASE_GRAND_TOTAL": true,
+            "IDX_SALES_CREDITMEMO_GRID_ORDER_ID": true,
             "FTI_32B7BA885941A8254EE84AE650ABDC86": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_CREDITMEMO_GRID_INCREMENT_ID_STORE_ID": true
+            "UNQ_SALES_CREDITMEMO_GRID_INCREMENT_ID_STORE_ID": true
         }
     },
     "sales_creditmemo_item": {
@@ -867,11 +867,11 @@
             "tax_ratio": true
         },
         "index": {
-            "SALES_CREDITMEMO_ITEM_PARENT_ID": true
+            "IDX_SALES_CREDITMEMO_ITEM_PARENT_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_CREDITMEMO_ITEM_PARENT_ID_SALES_CREDITMEMO_ENTITY_ID": true
+            "FK_SALES_CREDITMEMO_ITEM_PARENT_ID_SALES_CREDITMEMO_ENTITY_ID": true
         }
     },
     "sales_creditmemo_comment": {
@@ -884,12 +884,12 @@
             "created_at": true
         },
         "index": {
-            "SALES_CREDITMEMO_COMMENT_CREATED_AT": true,
-            "SALES_CREDITMEMO_COMMENT_PARENT_ID": true
+            "IDX_SALES_CREDITMEMO_COMMENT_CREATED_AT": true,
+            "IDX_SALES_CREDITMEMO_COMMENT_PARENT_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_CREDITMEMO_COMMENT_PARENT_ID_SALES_CREDITMEMO_ENTITY_ID": true
+            "FK_SALES_CREDITMEMO_COMMENT_PARENT_ID_SALES_CREDITMEMO_ENTITY_ID": true
         }
     },
     "sales_invoiced_aggregated": {
@@ -905,12 +905,12 @@
             "invoiced_not_captured": true
         },
         "index": {
-            "SALES_INVOICED_AGGREGATED_STORE_ID": true
+            "IDX_SALES_INVOICED_AGGREGATED_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_INVOICED_AGGREGATED_STORE_ID_STORE_STORE_ID": true,
-            "SALES_INVOICED_AGGREGATED_PERIOD_STORE_ID_ORDER_STATUS": true
+            "FK_SALES_INVOICED_AGGREGATED_STORE_ID_STORE_STORE_ID": true,
+            "UNQ_SALES_INVOICED_AGGREGATED_PERIOD_STORE_ID_ORDER_STATUS": true
         }
     },
     "sales_invoiced_aggregated_order": {
@@ -926,12 +926,12 @@
             "invoiced_not_captured": true
         },
         "index": {
-            "SALES_INVOICED_AGGREGATED_ORDER_STORE_ID": true
+            "IDX_SALES_INVOICED_AGGREGATED_ORDER_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_INVOICED_AGGREGATED_ORDER_STORE_ID_STORE_STORE_ID": true,
-            "SALES_INVOICED_AGGREGATED_ORDER_PERIOD_STORE_ID_ORDER_STATUS": true
+            "FK_SALES_INVOICED_AGGREGATED_ORDER_STORE_ID_STORE_STORE_ID": true,
+            "UNQ_SALES_INVOICED_AGGREGATED_ORDER_PERIOD_STORE_ID_ORDER_STATUS": true
         }
     },
     "sales_order_aggregated_created": {
@@ -958,12 +958,12 @@
             "total_discount_amount_actual": true
         },
         "index": {
-            "SALES_ORDER_AGGREGATED_CREATED_STORE_ID": true
+            "IDX_SALES_ORDER_AGGREGATED_CREATED_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_ORDER_AGGREGATED_CREATED_STORE_ID_STORE_STORE_ID": true,
-            "SALES_ORDER_AGGREGATED_CREATED_PERIOD_STORE_ID_ORDER_STATUS": true
+            "FK_SALES_ORDER_AGGREGATED_CREATED_STORE_ID_STORE_STORE_ID": true,
+            "UNQ_SALES_ORDER_AGGREGATED_CREATED_PERIOD_STORE_ID_ORDER_STATUS": true
         }
     },
     "sales_order_aggregated_updated": {
@@ -990,12 +990,12 @@
             "total_discount_amount_actual": true
         },
         "index": {
-            "SALES_ORDER_AGGREGATED_UPDATED_STORE_ID": true
+            "IDX_SALES_ORDER_AGGREGATED_UPDATED_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_ORDER_AGGREGATED_UPDATED_STORE_ID_STORE_STORE_ID": true,
-            "SALES_ORDER_AGGREGATED_UPDATED_PERIOD_STORE_ID_ORDER_STATUS": true
+            "FK_SALES_ORDER_AGGREGATED_UPDATED_STORE_ID_STORE_STORE_ID": true,
+            "UNQ_SALES_ORDER_AGGREGATED_UPDATED_PERIOD_STORE_ID_ORDER_STATUS": true
         }
     },
     "sales_payment_transaction": {
@@ -1012,15 +1012,15 @@
             "created_at": true
         },
         "index": {
-            "SALES_PAYMENT_TRANSACTION_PARENT_ID": true,
-            "SALES_PAYMENT_TRANSACTION_PAYMENT_ID": true
+            "IDX_SALES_PAYMENT_TRANSACTION_PARENT_ID": true,
+            "IDX_SALES_PAYMENT_TRANSACTION_PAYMENT_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_PAYMENT_TRANSACTION_ORDER_ID_SALES_ORDER_ENTITY_ID": true,
+            "FK_SALES_PAYMENT_TRANSACTION_ORDER_ID_SALES_ORDER_ENTITY_ID": true,
             "FK_B99FF1A06402D725EBDB0F3A7ECD47A2": true,
-            "SALES_PAYMENT_TRANSACTION_PAYMENT_ID_SALES_ORDER_PAYMENT_ENTT_ID": true,
-            "SALES_PAYMENT_TRANSACTION_ORDER_ID_PAYMENT_ID_TXN_ID": true
+            "FK_DBEA77BE19876AF496E5DE10370FBC59": true,
+            "UNQ_SALES_PAYMENT_TRANSACTION_ORDER_ID_PAYMENT_ID_TXN_ID": true
         }
     },
     "sales_refunded_aggregated": {
@@ -1035,12 +1035,12 @@
             "offline_refunded": true
         },
         "index": {
-            "SALES_REFUNDED_AGGREGATED_STORE_ID": true
+            "IDX_SALES_REFUNDED_AGGREGATED_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_REFUNDED_AGGREGATED_STORE_ID_STORE_STORE_ID": true,
-            "SALES_REFUNDED_AGGREGATED_PERIOD_STORE_ID_ORDER_STATUS": true
+            "FK_SALES_REFUNDED_AGGREGATED_STORE_ID_STORE_STORE_ID": true,
+            "UNQ_SALES_REFUNDED_AGGREGATED_PERIOD_STORE_ID_ORDER_STATUS": true
         }
     },
     "sales_refunded_aggregated_order": {
@@ -1055,12 +1055,12 @@
             "offline_refunded": true
         },
         "index": {
-            "SALES_REFUNDED_AGGREGATED_ORDER_STORE_ID": true
+            "IDX_SALES_REFUNDED_AGGREGATED_ORDER_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_REFUNDED_AGGREGATED_ORDER_STORE_ID_STORE_STORE_ID": true,
-            "SALES_REFUNDED_AGGREGATED_ORDER_PERIOD_STORE_ID_ORDER_STATUS": true
+            "FK_SALES_REFUNDED_AGGREGATED_ORDER_STORE_ID_STORE_STORE_ID": true,
+            "UNQ_SALES_REFUNDED_AGGREGATED_ORDER_PERIOD_STORE_ID_ORDER_STATUS": true
         }
     },
     "sales_shipping_aggregated": {
@@ -1075,12 +1075,12 @@
             "total_shipping_actual": true
         },
         "index": {
-            "SALES_SHIPPING_AGGREGATED_STORE_ID": true
+            "IDX_SALES_SHIPPING_AGGREGATED_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_SHIPPING_AGGREGATED_STORE_ID_STORE_STORE_ID": true,
-            "SALES_SHPP_AGGRED_PERIOD_STORE_ID_ORDER_STS_SHPP_DESCRIPTION": true
+            "FK_SALES_SHIPPING_AGGREGATED_STORE_ID_STORE_STORE_ID": true,
+            "UNQ_SALES_SHPP_AGGRED_PERIOD_STORE_ID_ORDER_STS_SHPP_DESCRIPTION": true
         }
     },
     "sales_shipping_aggregated_order": {
@@ -1095,11 +1095,11 @@
             "total_shipping_actual": true
         },
         "index": {
-            "SALES_SHIPPING_AGGREGATED_ORDER_STORE_ID": true
+            "IDX_SALES_SHIPPING_AGGREGATED_ORDER_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_SHIPPING_AGGREGATED_ORDER_STORE_ID_STORE_STORE_ID": true,
+            "FK_SALES_SHIPPING_AGGREGATED_ORDER_STORE_ID_STORE_STORE_ID": true,
             "UNQ_C05FAE47282EEA68654D0924E946761F": true
         }
     },
@@ -1115,13 +1115,13 @@
             "rating_pos": true
         },
         "index": {
-            "SALES_BESTSELLERS_AGGREGATED_DAILY_STORE_ID": true,
-            "SALES_BESTSELLERS_AGGREGATED_DAILY_PRODUCT_ID": true
+            "IDX_SALES_BESTSELLERS_AGGREGATED_DAILY_STORE_ID": true,
+            "IDX_SALES_BESTSELLERS_AGGREGATED_DAILY_PRODUCT_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_BESTSELLERS_AGGREGATED_DAILY_STORE_ID_STORE_STORE_ID": true,
-            "SALES_BESTSELLERS_AGGREGATED_DAILY_PERIOD_STORE_ID_PRODUCT_ID": true
+            "FK_SALES_BESTSELLERS_AGGREGATED_DAILY_STORE_ID_STORE_STORE_ID": true,
+            "UNQ_SALES_BESTSELLERS_AGGRED_DAILY_PERIOD_STORE_ID_PRD_ID": true
         }
     },
     "sales_bestsellers_aggregated_monthly": {
@@ -1136,13 +1136,13 @@
             "rating_pos": true
         },
         "index": {
-            "SALES_BESTSELLERS_AGGREGATED_MONTHLY_STORE_ID": true,
-            "SALES_BESTSELLERS_AGGREGATED_MONTHLY_PRODUCT_ID": true
+            "IDX_SALES_BESTSELLERS_AGGREGATED_MONTHLY_STORE_ID": true,
+            "IDX_SALES_BESTSELLERS_AGGREGATED_MONTHLY_PRODUCT_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_BESTSELLERS_AGGREGATED_MONTHLY_STORE_ID_STORE_STORE_ID": true,
-            "SALES_BESTSELLERS_AGGREGATED_MONTHLY_PERIOD_STORE_ID_PRODUCT_ID": true
+            "FK_SALES_BESTSELLERS_AGGREGATED_MONTHLY_STORE_ID_STORE_STORE_ID": true,
+            "UNQ_SALES_BESTSELLERS_AGGRED_MONTHLY_PERIOD_STORE_ID_PRD_ID": true
         }
     },
     "sales_bestsellers_aggregated_yearly": {
@@ -1157,13 +1157,13 @@
             "rating_pos": true
         },
         "index": {
-            "SALES_BESTSELLERS_AGGREGATED_YEARLY_STORE_ID": true,
-            "SALES_BESTSELLERS_AGGREGATED_YEARLY_PRODUCT_ID": true
+            "IDX_SALES_BESTSELLERS_AGGREGATED_YEARLY_STORE_ID": true,
+            "IDX_SALES_BESTSELLERS_AGGREGATED_YEARLY_PRODUCT_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_BESTSELLERS_AGGREGATED_YEARLY_STORE_ID_STORE_STORE_ID": true,
-            "SALES_BESTSELLERS_AGGREGATED_YEARLY_PERIOD_STORE_ID_PRODUCT_ID": true
+            "FK_SALES_BESTSELLERS_AGGREGATED_YEARLY_STORE_ID_STORE_STORE_ID": true,
+            "UNQ_SALES_BESTSELLERS_AGGRED_YEARLY_PERIOD_STORE_ID_PRD_ID": true
         }
     },
     "sales_order_tax": {
@@ -1181,7 +1181,7 @@
             "base_real_amount": true
         },
         "index": {
-            "SALES_ORDER_TAX_ORDER_ID_PRIORITY_POSITION": true
+            "IDX_SALES_ORDER_TAX_ORDER_ID_PRIORITY_POSITION": true
         },
         "constraint": {
             "PRIMARY": true
@@ -1201,14 +1201,14 @@
             "taxable_item_type": true
         },
         "index": {
-            "SALES_ORDER_TAX_ITEM_ITEM_ID": true
+            "IDX_SALES_ORDER_TAX_ITEM_ITEM_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_ORDER_TAX_ITEM_ASSOCIATED_ITEM_ID_SALES_ORDER_ITEM_ITEM_ID": true,
-            "SALES_ORDER_TAX_ITEM_TAX_ID_SALES_ORDER_TAX_TAX_ID": true,
-            "SALES_ORDER_TAX_ITEM_ITEM_ID_SALES_ORDER_ITEM_ITEM_ID": true,
-            "SALES_ORDER_TAX_ITEM_TAX_ID_ITEM_ID": true
+            "FK_A2F1F40083C7C1A767C86AF11080505B": true,
+            "FK_SALES_ORDER_TAX_ITEM_TAX_ID_SALES_ORDER_TAX_TAX_ID": true,
+            "FK_SALES_ORDER_TAX_ITEM_ITEM_ID_SALES_ORDER_ITEM_ITEM_ID": true,
+            "UNQ_SALES_ORDER_TAX_ITEM_TAX_ID_ITEM_ID": true
         }
     },
     "sales_order_status": {
@@ -1229,7 +1229,7 @@
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_ORDER_STATUS_STATE_STATUS_SALES_ORDER_STATUS_STATUS": true
+            "FK_SALES_ORDER_STATUS_STATE_STATUS_SALES_ORDER_STATUS_STATUS": true
         }
     },
     "sales_order_status_label": {
@@ -1239,12 +1239,12 @@
             "label": true
         },
         "index": {
-            "SALES_ORDER_STATUS_LABEL_STORE_ID": true
+            "IDX_SALES_ORDER_STATUS_LABEL_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_ORDER_STATUS_LABEL_STATUS_SALES_ORDER_STATUS_STATUS": true,
-            "SALES_ORDER_STATUS_LABEL_STORE_ID_STORE_STORE_ID": true
+            "FK_SALES_ORDER_STATUS_LABEL_STATUS_SALES_ORDER_STATUS_STATUS": true,
+            "FK_SALES_ORDER_STATUS_LABEL_STORE_ID_STORE_STORE_ID": true
         }
     },
     "sales_order_status_change_history": {
@@ -1252,12 +1252,11 @@
             "entity_id": true,
             "order_id": true,
             "status": true,
-            "created_at": true,
-            "updated_at": true
+            "created_at": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SALES_ORDER_STATUS_CHANGE_HISTORY_ORDER_ID_SALES_ORDER_ENTITY_ID": true
+            "FK_SALES_ORDER_STS_CHANGE_HISTORY_ORDER_ID_SALES_ORDER_ENTT_ID": true
         }
     }
 }

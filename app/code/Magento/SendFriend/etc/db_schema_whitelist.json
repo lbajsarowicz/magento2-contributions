@@ -7,8 +7,8 @@
             "website_id": true
         },
         "index": {
-            "SENDFRIEND_LOG_IP": true,
-            "SENDFRIEND_LOG_TIME": true
+            "IDX_SENDFRIEND_LOG_IP": true,
+            "IDX_SENDFRIEND_LOG_TIME": true
         },
         "constraint": {
             "PRIMARY": true

@@ -10,8 +10,8 @@
         },
         "constraint": {
             "PRIMARY": true,
-            "TRANSLATION_STORE_ID_STORE_STORE_ID": true,
-            "TRANSLATION_STORE_ID_LOCALE_CRC_STRING_STRING": true
+            "FK_TRANSLATION_STORE_ID_STORE_STORE_ID": true,
+            "UNQ_TRANSLATION_STORE_ID_LOCALE_CRC_STRING_STRING": true
         }
     }
 }

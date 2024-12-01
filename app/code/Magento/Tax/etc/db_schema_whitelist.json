@@ -18,8 +18,8 @@
             "calculate_subtotal": true
         },
         "index": {
-            "TAX_CALCULATION_RULE_PRIORITY_POSITION": true,
-            "TAX_CALCULATION_RULE_CODE": true
+            "IDX_TAX_CALCULATION_RULE_PRIORITY_POSITION": true,
+            "IDX_TAX_CALCULATION_RULE_CODE": true
         },
         "constraint": {
             "PRIMARY": true
@@ -38,8 +38,8 @@
             "zip_to": true
         },
         "index": {
-            "TAX_CALCULATION_RATE_TAX_COUNTRY_ID_TAX_REGION_ID_TAX_POSTCODE": true,
-            "TAX_CALCULATION_RATE_CODE": true,
+            "IDX_TAX_CALC_RATE_TAX_COUNTRY_ID_TAX_REGION_ID_TAX_POSTCODE": true,
+            "IDX_TAX_CALCULATION_RATE_CODE": true,
             "IDX_CA799F1E2CB843495F601E56C84A626D": true
         },
         "constraint": {
@@ -55,17 +55,17 @@
             "product_tax_class_id": true
         },
         "index": {
-            "TAX_CALCULATION_TAX_CALCULATION_RULE_ID": true,
-            "TAX_CALCULATION_CUSTOMER_TAX_CLASS_ID": true,
-            "TAX_CALCULATION_PRODUCT_TAX_CLASS_ID": true,
-            "TAX_CALC_TAX_CALC_RATE_ID_CSTR_TAX_CLASS_ID_PRD_TAX_CLASS_ID": true
+            "IDX_TAX_CALCULATION_TAX_CALCULATION_RULE_ID": true,
+            "IDX_TAX_CALCULATION_CUSTOMER_TAX_CLASS_ID": true,
+            "IDX_TAX_CALCULATION_PRODUCT_TAX_CLASS_ID": true,
+            "IDX_TAX_CALC_TAX_CALC_RATE_ID_CSTR_TAX_CLASS_ID_PRD_TAX_CLASS_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "TAX_CALCULATION_PRODUCT_TAX_CLASS_ID_TAX_CLASS_CLASS_ID": true,
-            "TAX_CALCULATION_CUSTOMER_TAX_CLASS_ID_TAX_CLASS_CLASS_ID": true,
-            "TAX_CALC_TAX_CALC_RATE_ID_TAX_CALC_RATE_TAX_CALC_RATE_ID": true,
-            "TAX_CALC_TAX_CALC_RULE_ID_TAX_CALC_RULE_TAX_CALC_RULE_ID": true
+            "FK_TAX_CALCULATION_PRODUCT_TAX_CLASS_ID_TAX_CLASS_CLASS_ID": true,
+            "FK_TAX_CALCULATION_CUSTOMER_TAX_CLASS_ID_TAX_CLASS_CLASS_ID": true,
+            "FK_TAX_CALC_TAX_CALC_RATE_ID_TAX_CALC_RATE_TAX_CALC_RATE_ID": true,
+            "FK_TAX_CALC_TAX_CALC_RULE_ID_TAX_CALC_RULE_TAX_CALC_RULE_ID": true
         }
     },
     "tax_calculation_rate_title": {
@@ -76,12 +76,12 @@
             "value": true
         },
         "index": {
-            "TAX_CALCULATION_RATE_TITLE_TAX_CALCULATION_RATE_ID_STORE_ID": true,
-            "TAX_CALCULATION_RATE_TITLE_STORE_ID": true
+            "IDX_TAX_CALCULATION_RATE_TITLE_TAX_CALCULATION_RATE_ID_STORE_ID": true,
+            "IDX_TAX_CALCULATION_RATE_TITLE_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "TAX_CALCULATION_RATE_TITLE_STORE_ID_STORE_STORE_ID": true,
+            "FK_TAX_CALCULATION_RATE_TITLE_STORE_ID_STORE_STORE_ID": true,
             "FK_37FB965F786AD5897BB3AE90470C42AB": true
         }
     },
@@ -97,12 +97,12 @@
             "tax_base_amount_sum": true
         },
         "index": {
-            "TAX_ORDER_AGGREGATED_CREATED_STORE_ID": true
+            "IDX_TAX_ORDER_AGGREGATED_CREATED_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "TAX_ORDER_AGGREGATED_CREATED_STORE_ID_STORE_STORE_ID": true,
-            "TAX_ORDER_AGGRED_CREATED_PERIOD_STORE_ID_CODE_PERCENT_ORDER_STS": true
+            "FK_TAX_ORDER_AGGREGATED_CREATED_STORE_ID_STORE_STORE_ID": true,
+            "UNQ_FCA5E2C02689EB2641B30580D7AACF12": true
         }
     },
     "tax_order_aggregated_updated": {
@@ -117,12 +117,12 @@
             "tax_base_amount_sum": true
         },
         "index": {
-            "TAX_ORDER_AGGREGATED_UPDATED_STORE_ID": true
+            "IDX_TAX_ORDER_AGGREGATED_UPDATED_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "TAX_ORDER_AGGREGATED_UPDATED_STORE_ID_STORE_STORE_ID": true,
-            "TAX_ORDER_AGGRED_UPDATED_PERIOD_STORE_ID_CODE_PERCENT_ORDER_STS": true
+            "FK_TAX_ORDER_AGGREGATED_UPDATED_STORE_ID_STORE_STORE_ID": true,
+            "UNQ_DB0AF14011199AA6CD31D5078B90AA8D": true
         }
     }
 }

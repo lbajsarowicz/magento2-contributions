@@ -9,11 +9,11 @@
             "store_id": true
         },
         "index": {
-            "SITEMAP_STORE_ID": true
+            "IDX_SITEMAP_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "SITEMAP_STORE_ID_STORE_STORE_ID": true
+            "FK_SITEMAP_STORE_ID_STORE_STORE_ID": true
         }
     }
 }

@@ -52,13 +52,12 @@
             "ext_shipping_info": true
         },
         "index": {
-            "QUOTE_CUSTOMER_ID_STORE_ID_IS_ACTIVE": true,
-            "QUOTE_STORE_ID": true,
-            "QUOTE_STORE_ID_UPDATED_AT": true
+            "IDX_QUOTE_CUSTOMER_ID_STORE_ID_IS_ACTIVE": true,
+            "IDX_QUOTE_STORE_ID_UPDATED_AT": true
         },
         "constraint": {
             "PRIMARY": true,
-            "QUOTE_STORE_ID_STORE_STORE_ID": true
+            "FK_QUOTE_STORE_ID_STORE_STORE_ID": true
         }
     },
     "quote_address": {
@@ -127,11 +126,11 @@
             "validated_vat_number": true
         },
         "index": {
-            "QUOTE_ADDRESS_QUOTE_ID": true
+            "IDX_QUOTE_ADDRESS_QUOTE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "QUOTE_ADDRESS_QUOTE_ID_QUOTE_ENTITY_ID": true
+            "FK_QUOTE_ADDRESS_QUOTE_ID_QUOTE_ENTITY_ID": true
         }
     },
     "quote_item": {
@@ -180,16 +179,16 @@
             "base_discount_tax_compensation_amount": true
         },
         "index": {
-            "QUOTE_ITEM_PARENT_ITEM_ID": true,
-            "QUOTE_ITEM_PRODUCT_ID": true,
-            "QUOTE_ITEM_QUOTE_ID": true,
-            "QUOTE_ITEM_STORE_ID": true
+            "IDX_QUOTE_ITEM_PARENT_ITEM_ID": true,
+            "IDX_QUOTE_ITEM_PRODUCT_ID": true,
+            "IDX_QUOTE_ITEM_QUOTE_ID": true,
+            "IDX_QUOTE_ITEM_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "QUOTE_ITEM_PARENT_ITEM_ID_QUOTE_ITEM_ITEM_ID": true,
-            "QUOTE_ITEM_QUOTE_ID_QUOTE_ENTITY_ID": true,
-            "QUOTE_ITEM_STORE_ID_STORE_STORE_ID": true
+            "FK_QUOTE_ITEM_PARENT_ITEM_ID_QUOTE_ITEM_ITEM_ID": true,
+            "FK_QUOTE_ITEM_QUOTE_ID_QUOTE_ENTITY_ID": true,
+            "FK_QUOTE_ITEM_STORE_ID_STORE_STORE_ID": true
         }
     },
     "quote_address_item": {
@@ -235,16 +234,16 @@
             "base_discount_tax_compensation_amount": true
         },
         "index": {
-            "QUOTE_ADDRESS_ITEM_QUOTE_ADDRESS_ID": true,
-            "QUOTE_ADDRESS_ITEM_PARENT_ITEM_ID": true,
-            "QUOTE_ADDRESS_ITEM_QUOTE_ITEM_ID": true,
-            "QUOTE_ADDRESS_ITEM_STORE_ID": true
+            "IDX_QUOTE_ADDRESS_ITEM_QUOTE_ADDRESS_ID": true,
+            "IDX_QUOTE_ADDRESS_ITEM_PARENT_ITEM_ID": true,
+            "IDX_QUOTE_ADDRESS_ITEM_QUOTE_ITEM_ID": true,
+            "IDX_QUOTE_ADDRESS_ITEM_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "QUOTE_ADDRESS_ITEM_QUOTE_ADDRESS_ID_QUOTE_ADDRESS_ADDRESS_ID": true,
-            "QUOTE_ADDR_ITEM_PARENT_ITEM_ID_QUOTE_ADDR_ITEM_ADDR_ITEM_ID": true,
-            "QUOTE_ADDRESS_ITEM_QUOTE_ITEM_ID_QUOTE_ITEM_ITEM_ID": true
+            "FK_QUOTE_ADDRESS_ITEM_QUOTE_ADDRESS_ID_QUOTE_ADDRESS_ADDRESS_ID": true,
+            "FK_QUOTE_ADDR_ITEM_PARENT_ITEM_ID_QUOTE_ADDR_ITEM_ADDR_ITEM_ID": true,
+            "FK_QUOTE_ADDRESS_ITEM_QUOTE_ITEM_ID_QUOTE_ITEM_ITEM_ID": true
         }
     },
     "quote_item_option": {
@@ -256,11 +255,11 @@
             "value": true
         },
         "index": {
-            "QUOTE_ITEM_OPTION_ITEM_ID": true
+            "IDX_QUOTE_ITEM_OPTION_ITEM_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "QUOTE_ITEM_OPTION_ITEM_ID_QUOTE_ITEM_ITEM_ID": true
+            "FK_QUOTE_ITEM_OPTION_ITEM_ID_QUOTE_ITEM_ITEM_ID": true
         }
     },
     "quote_payment": {
@@ -286,11 +285,11 @@
             "additional_information": true
         },
         "index": {
-            "QUOTE_PAYMENT_QUOTE_ID": true
+            "IDX_QUOTE_PAYMENT_QUOTE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "QUOTE_PAYMENT_QUOTE_ID_QUOTE_ENTITY_ID": true
+            "FK_QUOTE_PAYMENT_QUOTE_ID_QUOTE_ENTITY_ID": true
         }
     },
     "quote_shipping_rate": {
@@ -309,11 +308,11 @@
             "method_title": true
         },
         "index": {
-            "QUOTE_SHIPPING_RATE_ADDRESS_ID": true
+            "IDX_QUOTE_SHIPPING_RATE_ADDRESS_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "QUOTE_SHIPPING_RATE_ADDRESS_ID_QUOTE_ADDRESS_ADDRESS_ID": true
+            "FK_QUOTE_SHIPPING_RATE_ADDRESS_ID_QUOTE_ADDRESS_ADDRESS_ID": true
         }
     },
     "quote_id_mask": {
@@ -323,12 +322,12 @@
             "masked_id": true
         },
         "index": {
-            "QUOTE_ID_MASK_QUOTE_ID": true,
-            "QUOTE_ID_MASK_MASKED_ID": true
+            "IDX_QUOTE_ID_MASK_QUOTE_ID": true,
+            "IDX_QUOTE_ID_MASK_MASKED_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "QUOTE_ID_MASK_QUOTE_ID_QUOTE_ENTITY_ID": true
+            "FK_QUOTE_ID_MASK_QUOTE_ID_QUOTE_ENTITY_ID": true
         }
     }
 }

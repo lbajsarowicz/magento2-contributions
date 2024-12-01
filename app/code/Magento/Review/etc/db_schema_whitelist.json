@@ -26,14 +26,14 @@
             "status_id": true
         },
         "index": {
-            "REVIEW_ENTITY_ID": true,
-            "REVIEW_STATUS_ID": true,
-            "REVIEW_ENTITY_PK_VALUE": true
+            "IDX_REVIEW_ENTITY_ID": true,
+            "IDX_REVIEW_STATUS_ID": true,
+            "IDX_REVIEW_ENTITY_PK_VALUE": true
         },
         "constraint": {
             "PRIMARY": true,
-            "REVIEW_ENTITY_ID_REVIEW_ENTITY_ENTITY_ID": true,
-            "REVIEW_STATUS_ID_REVIEW_STATUS_STATUS_ID": true
+            "FK_REVIEW_ENTITY_ID_REVIEW_ENTITY_ENTITY_ID": true,
+            "FK_REVIEW_STATUS_ID_REVIEW_STATUS_STATUS_ID": true
         }
     },
     "review_detail": {
@@ -47,15 +47,15 @@
             "customer_id": true
         },
         "index": {
-            "REVIEW_DETAIL_REVIEW_ID": true,
-            "REVIEW_DETAIL_STORE_ID": true,
-            "REVIEW_DETAIL_CUSTOMER_ID": true
+            "IDX_REVIEW_DETAIL_REVIEW_ID": true,
+            "IDX_REVIEW_DETAIL_STORE_ID": true,
+            "IDX_REVIEW_DETAIL_CUSTOMER_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "REVIEW_DETAIL_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID": true,
-            "REVIEW_DETAIL_REVIEW_ID_REVIEW_REVIEW_ID": true,
-            "REVIEW_DETAIL_STORE_ID_STORE_STORE_ID": true
+            "FK_REVIEW_DETAIL_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID": true,
+            "FK_REVIEW_DETAIL_REVIEW_ID_REVIEW_REVIEW_ID": true,
+            "FK_REVIEW_DETAIL_STORE_ID_STORE_STORE_ID": true
         }
     },
     "review_entity_summary": {
@@ -68,11 +68,11 @@
             "store_id": true
         },
         "index": {
-            "REVIEW_ENTITY_SUMMARY_STORE_ID": true
+            "IDX_REVIEW_ENTITY_SUMMARY_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "REVIEW_ENTITY_SUMMARY_STORE_ID_STORE_STORE_ID": true
+            "FK_REVIEW_ENTITY_SUMMARY_STORE_ID_STORE_STORE_ID": true
         }
     },
     "review_store": {
@@ -81,12 +81,12 @@
             "store_id": true
         },
         "index": {
-            "REVIEW_STORE_STORE_ID": true
+            "IDX_REVIEW_STORE_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "REVIEW_STORE_REVIEW_ID_REVIEW_REVIEW_ID": true,
-            "REVIEW_STORE_STORE_ID_STORE_STORE_ID": true
+            "FK_REVIEW_STORE_REVIEW_ID_REVIEW_REVIEW_ID": true,
+            "FK_REVIEW_STORE_STORE_ID_STORE_STORE_ID": true
         }
     },
     "rating_entity": {
@@ -96,7 +96,7 @@
         },
         "constraint": {
             "PRIMARY": true,
-            "RATING_ENTITY_ENTITY_CODE": true
+            "UNQ_RATING_ENTITY_ENTITY_CODE": true
         }
     },
     "rating": {
@@ -108,12 +108,12 @@
             "is_active": true
         },
         "index": {
-            "RATING_ENTITY_ID": true
+            "IDX_RATING_ENTITY_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "RATING_ENTITY_ID_RATING_ENTITY_ENTITY_ID": true,
-            "RATING_RATING_CODE": true
+            "FK_RATING_ENTITY_ID_RATING_ENTITY_ENTITY_ID": true,
+            "UNQ_RATING_RATING_CODE": true
         }
     },
     "rating_option": {
@@ -125,11 +125,11 @@
             "position": true
         },
         "index": {
-            "RATING_OPTION_RATING_ID": true
+            "IDX_RATING_OPTION_RATING_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "RATING_OPTION_RATING_ID_RATING_RATING_ID": true
+            "FK_RATING_OPTION_RATING_ID_RATING_RATING_ID": true
         }
     },
     "rating_option_vote": {
@@ -146,12 +146,12 @@
             "value": true
         },
         "index": {
-            "RATING_OPTION_VOTE_OPTION_ID": true
+            "IDX_RATING_OPTION_VOTE_OPTION_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "RATING_OPTION_VOTE_OPTION_ID_RATING_OPTION_OPTION_ID": true,
-            "RATING_OPTION_VOTE_REVIEW_ID_REVIEW_REVIEW_ID": true
+            "FK_RATING_OPTION_VOTE_OPTION_ID_RATING_OPTION_OPTION_ID": true,
+            "FK_RATING_OPTION_VOTE_REVIEW_ID_REVIEW_REVIEW_ID": true
         }
     },
     "rating_option_vote_aggregated": {
@@ -166,13 +166,13 @@
             "store_id": true
         },
         "index": {
-            "RATING_OPTION_VOTE_AGGREGATED_RATING_ID": true,
-            "RATING_OPTION_VOTE_AGGREGATED_STORE_ID": true
+            "IDX_RATING_OPTION_VOTE_AGGREGATED_RATING_ID": true,
+            "IDX_RATING_OPTION_VOTE_AGGREGATED_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "RATING_OPTION_VOTE_AGGREGATED_RATING_ID_RATING_RATING_ID": true,
-            "RATING_OPTION_VOTE_AGGREGATED_STORE_ID_STORE_STORE_ID": true
+            "FK_RATING_OPTION_VOTE_AGGREGATED_RATING_ID_RATING_RATING_ID": true,
+            "FK_RATING_OPTION_VOTE_AGGREGATED_STORE_ID_STORE_STORE_ID": true
         }
     },
     "rating_store": {
@@ -181,12 +181,12 @@
             "store_id": true
         },
         "index": {
-            "RATING_STORE_STORE_ID": true
+            "IDX_RATING_STORE_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "RATING_STORE_STORE_ID_STORE_STORE_ID": true,
-            "RATING_STORE_RATING_ID_RATING_RATING_ID": true
+            "FK_RATING_STORE_STORE_ID_STORE_STORE_ID": true,
+            "FK_RATING_STORE_RATING_ID_RATING_RATING_ID": true
         }
     },
     "rating_title": {
@@ -196,12 +196,12 @@
             "value": true
         },
         "index": {
-            "RATING_TITLE_STORE_ID": true
+            "IDX_RATING_TITLE_STORE_ID": true
         },
         "constraint": {
             "PRIMARY": true,
-            "RATING_TITLE_RATING_ID_RATING_RATING_ID": true,
-            "RATING_TITLE_STORE_ID_STORE_STORE_ID": true
+            "FK_RATING_TITLE_RATING_ID_RATING_RATING_ID": true,
+            "FK_RATING_TITLE_STORE_ID_STORE_STORE_ID": true
         }
     }
 }
