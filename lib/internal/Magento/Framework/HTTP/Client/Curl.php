@@ -221,6 +221,8 @@ class Curl implements \Magento\Framework\HTTP\ClientInterface
      *
      * @param string $uri uri relative to host, ex. "/index.php"
      * @return void
+     *
+     * @url https://www.rfc-editor.org/rfc/rfc9110.html#section-9.3.1
      */
     public function get($uri)
     {
@@ -237,7 +239,8 @@ class Curl implements \Magento\Framework\HTTP\ClientInterface
      * @param array|string $params
      * @return void
      *
-     * @see \Magento\Framework\HTTP\Client#post($uri, $params)
+     * @see \Magento\Framework\HTTP\Client::post($uri, $params)
+     * @url https://www.rfc-editor.org/rfc/rfc9110.html#section-9.3.3
      */
     public function post($uri, $params)
     {
@@ -250,8 +253,10 @@ class Curl implements \Magento\Framework\HTTP\ClientInterface
      * @param string $uri
      * @param array|string $params
      * @return void
+     *
+     * @url https://www.rfc-editor.org/rfc/rfc9110.html#section-9.3.4
      */
-    public function put($uri, $params)
+    public function put(string $uri, string|array $params): void
     {
         $this->makeRequest("PUT", $uri, $params);
     }
@@ -262,8 +267,10 @@ class Curl implements \Magento\Framework\HTTP\ClientInterface
      * @param string $uri
      * @param array|string $params
      * @return void
+     *
+     * @url https://www.rfc-editor.org/rfc/rfc9110.html#section-9.3.5
      */
-    public function delete(string $uri, array|string $params = [])
+    public function delete(string $uri, array|string $params = []): void
     {
         $this->makeRequest("DELETE", $uri, $params);
     }
@@ -274,8 +281,10 @@ class Curl implements \Magento\Framework\HTTP\ClientInterface
      * @param string $uri
      * @param array|string $params
      * @return void
+     *
+     * @url https://www.rfc-editor.org/info/rfc5789
      */
-    public function patch($uri, $params)
+    public function patch(string $uri, array|string $params): void
     {
         $this->makeRequest("PATCH", $uri, $params);
     }
@@ -286,8 +295,10 @@ class Curl implements \Magento\Framework\HTTP\ClientInterface
      * @param string $uri
      * @param array|string $params
      * @return void
+     *
+     * @url https://www.rfc-editor.org/rfc/rfc9110.html#section-9.3.7
      */
-    public function options(string $uri, array|string $params = [])
+    public function options(string $uri, array|string $params = []): void
     {
         $this->makeRequest("OPTIONS", $uri, $params);
     }
@@ -296,12 +307,13 @@ class Curl implements \Magento\Framework\HTTP\ClientInterface
      * Make HEAD request
      *
      * @param string $uri
-     * @param array|string $params
      * @return void
+     *
+     * @url https://www.rfc-editor.org/rfc/rfc9110.html#section-9.3.2
      */
-    public function head(string $uri, array|string $params = [])
+    public function head(string $uri): void
     {
-        $this->makeRequest("HEAD", $uri, $params);
+        $this->makeRequest("HEAD", $uri);
     }
 
     /**
@@ -309,8 +321,10 @@ class Curl implements \Magento\Framework\HTTP\ClientInterface
      *
      * @param string $uri
      * @return void
+     *
+     * @url https://www.rfc-editor.org/rfc/rfc9110.html#section-9.3.8
      */
-    public function trace(string $uri)
+    public function trace(string $uri): void
     {
         $this->makeRequest("TRACE", $uri);
     }
@@ -319,12 +333,13 @@ class Curl implements \Magento\Framework\HTTP\ClientInterface
      * Make CONNECT request
      *
      * @param string $uri
-     * @param array|string $params
      * @return void
+     *
+     * @url https://www.rfc-editor.org/rfc/rfc9110.html#section-9.3.6
      */
-    public function connect(string $uri, array|string $params = [])
+    public function connect(string $uri): void
     {
-        $this->makeRequest("CONNECT", $uri, $params);
+        $this->makeRequest("CONNECT", $uri);
     }
 
     /**
