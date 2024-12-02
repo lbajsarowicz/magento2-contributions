@@ -171,7 +171,7 @@ class MassChangelogTest extends TestCase
         $this->title = $this->createMock(Title::class);
         $this->messageManager = $this->getMockForAbstractClass(
             ManagerInterface::class,
-            ['addError', 'addSuccess'],
+            ['addErrorMessage', 'addSuccess'],
             '',
             false
         );
@@ -206,7 +206,7 @@ class MassChangelogTest extends TestCase
 
         if (!is_array($indexerIds)) {
             $this->messageManager->expects($this->once())
-                ->method('addError')->with(__('Please select indexers.'))
+                ->method('addErrorMessage')->with(__('Please select indexers.'))
                 ->willReturn(1);
         } else {
             $this->objectManager->expects($this->any())
@@ -235,7 +235,7 @@ class MassChangelogTest extends TestCase
             if ($exception !== null) {
                 $this->messageManager
                     ->expects($this->exactly($expectsExceptionValues[2]))
-                    ->method('addError')
+                    ->method('addErrorMessage')
                     ->with($exception->getMessage());
                 $this->messageManager->expects($this->exactly($expectsExceptionValues[1]))
                     ->method('addException')
@@ -253,28 +253,28 @@ class MassChangelogTest extends TestCase
     /**
      * @return array
      */
-    public function executeDataProvider()
+    public static function executeDataProvider()
     {
         return [
             'set1' => [
-                'idexers' => 1,
+                'indexerIds' => 1,
                 "exception" => null,
-                "expectsValues" => [0, 0, 0]
+                "expectsExceptionValues" => [0, 0, 0]
             ],
             'set2' => [
-                'idexers' => [1],
+                'indexerIds' => [1],
                 "exception" => null,
-                "expectsException" => [1, 0, 0]
+                "expectsExceptionValues" => [1, 0, 0]
             ],
             'set3' => [
-                'idexers' => [1],
+                'indexerIds' => [1],
                 "exception" => new LocalizedException(__('Test Phrase')),
-                "expectsException" => [0, 0, 1]
+                "expectsExceptionValues" => [0, 0, 1]
             ],
             'set4' => [
-                'idexers' => [1],
+                'indexerIds' => [1],
                 "exception" => new \Exception(),
-                "expectsException" => [0, 1, 0]
+                "expectsExceptionValues" => [0, 1, 0]
             ]
         ];
     }

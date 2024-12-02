@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace Magento\Paypal\Test\Unit\Model;
 
 use Magento\Checkout\Model\Session;
+use Magento\Directory\Helper\Data as DirectoryHelper;
 use Magento\Framework\Api\ExtensibleDataInterface;
 use Magento\Framework\DataObject;
 use Magento\Framework\Event\ManagerInterface;
@@ -53,6 +54,7 @@ class ExpressTest extends TestCase
         ApiProcessableException::API_MAXIMUM_AMOUNT_FILTER_DECLINE,
         ApiProcessableException::API_OTHER_FILTER_DECLINE,
         ApiProcessableException::API_ADDRESS_MATCH_FAIL,
+        ApiProcessableException::API_TRANSACTION_HAS_BEEN_COMPLETED
     ];
 
     /**
@@ -114,7 +116,7 @@ class ExpressTest extends TestCase
             ['setMethod', 'getApi', 'importPaymentInfo', 'resetApi', 'void']
         );
         $this->eventManager = $this->getMockBuilder(ManagerInterface::class)
-            ->setMethods(['dispatch'])
+            ->onlyMethods(['dispatch'])
             ->getMockForAbstractClass();
 
         $this->pro->method('getApi')
@@ -128,7 +130,14 @@ class ExpressTest extends TestCase
     public function testSetApiProcessableErrors()
     {
         $this->nvp->expects($this->once())->method('setProcessableErrors')->with($this->errorCodes);
-
+        $objectManager = new ObjectManager($this);
+        $objects = [
+            [
+                DirectoryHelper::class,
+                $this->createMock(DirectoryHelper::class)
+            ]
+        ];
+        $objectManager->prepareObjectManager($objects);
         $this->model = $this->helper->getObject(
             Express::class,
             [
@@ -246,10 +255,19 @@ class ExpressTest extends TestCase
 
         $paymentInfo->expects(static::exactly(3))
             ->method('setAdditionalInformation')
-            ->withConsecutive(
-                [Checkout::PAYMENT_INFO_TRANSPORT_BILLING_AGREEMENT, $transportValue],
-                [Checkout::PAYMENT_INFO_TRANSPORT_PAYER_ID, $transportValue],
-                [Checkout::PAYMENT_INFO_TRANSPORT_TOKEN, $transportValue]
+            ->willReturnCallback(
+                function ($arg1, $arg2) use ($transportValue) {
+                    if ($arg1 === Checkout::PAYMENT_INFO_TRANSPORT_BILLING_AGREEMENT
+                        && $arg2 === $transportValue) {
+                        return null;
+                    } elseif ($arg1 === Checkout::PAYMENT_INFO_TRANSPORT_PAYER_ID
+                        && $arg2 === $transportValue) {
+                        return null;
+                    } elseif ($arg1 === Checkout::PAYMENT_INFO_TRANSPORT_TOKEN
+                        && $arg2 === $transportValue) {
+                        return null;
+                    }
+                }
             );
 
         $this->model->assignData($data);

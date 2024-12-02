@@ -11,9 +11,11 @@ use Magento\TestFramework\SkippableInterface;
 use Magento\TestFramework\Workaround\Override\Config;
 use Magento\TestFramework\Workaround\Override\WrapperGenerator;
 use PHPUnit\Framework\TestSuite;
-use PHPUnit\TextUI\Configuration\Registry;
+use PHPUnit\TextUI\XmlConfiguration\TestSuiteMapper;
+use PHPUnit\TextUI\XmlConfiguration\Configuration;
+use PHPUnit\TextUI\XmlConfiguration\Loader;
+use PHPUnit\TextUI\Configuration\TestSuite as TestSuiteConfiguration;
 use PHPUnit\TextUI\Configuration\TestSuiteCollection;
-use PHPUnit\TextUI\Configuration\TestSuiteMapper;
 
 /**
  * Web API tests wrapper.
@@ -21,30 +23,31 @@ use PHPUnit\TextUI\Configuration\TestSuiteMapper;
 class WebApiTest extends TestSuite
 {
     /**
-     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      * @param string $className
+     *
      * @return TestSuite
+     * @throws \ReflectionException
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public static function suite($className)
     {
         $generator = new WrapperGenerator();
         $overrideConfig = Config::getInstance();
-        $configuration = Registry::getInstance()->get(self::getConfigurationFile());
+        $configuration = self::getConfiguration();
         $suitesConfig = $configuration->testSuite();
-        $suite = new TestSuite();
-        /** @var \PHPUnit\TextUI\Configuration\TestSuite $suiteConfig */
+        $suite = TestSuite::fromClassName($className);
         foreach ($suitesConfig as $suiteConfig) {
-            $suites = (new TestSuiteMapper())->map(TestSuiteCollection::fromArray([$suiteConfig]), '');
+            $suites = self::getSuites($suiteConfig);
             /** @var TestSuite $testSuite */
             foreach ($suites as $testSuite) {
                 /** @var TestSuite $test */
                 foreach ($testSuite as $test) {
-                    $testName = $test->getName();
+                    $testName = $test->name();
 
                     if ($overrideConfig->hasSkippedTest($testName) && !$test instanceof SkippableInterface) {
                         $reflectionClass = new \ReflectionClass($testName);
                         $resultTest = $generator->generateTestWrapper($reflectionClass);
-                        $suite->addTest(new TestSuite($resultTest, $testName));
+                        $suite->addTest(TestSuite::fromClassName($resultTest));
                     } else {
                         $suite->addTest($test);
                     }
@@ -66,6 +69,30 @@ class WebApiTest extends TestSuite
         $longConfig = $params['configuration'] ?? '';
         $shortConfig = $params['c'] ?? '';
 
-        return $shortConfig ? $shortConfig : $longConfig;
+        return $shortConfig ?: $longConfig;
+    }
+
+    /**
+     * Retrieve configuration.
+     *
+     * @return Configuration
+     */
+    private static function getConfiguration()
+    {
+        return (new Loader())->load(self::getConfigurationFile());
+    }
+
+    /**
+     * Retrieve test suites by suite config.
+     *
+     * @param TestSuiteConfiguration $suiteConfig
+     *
+     * @return TestSuite
+     */
+    private static function getSuites($suiteConfig)
+    {
+        return (new TestSuiteMapper())->map(self::getConfigurationFile(),
+            TestSuiteCollection::fromArray([$suiteConfig]),'', ''
+        );
     }
 }

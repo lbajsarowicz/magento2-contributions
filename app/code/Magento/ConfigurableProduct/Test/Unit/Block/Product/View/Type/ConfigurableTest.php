@@ -32,6 +32,7 @@ use Magento\Store\Api\Data\StoreInterface;
 use Magento\Store\Model\StoreManagerInterface;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
+use Magento\Tax\Helper\Data as TaxData;
 
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
@@ -160,6 +161,10 @@ class ConfigurableTest extends TestCase
         $this->context->expects($this->once())
             ->method('getResolver')
             ->willReturn($fileResolverMock);
+        $taxData = $this->createMock(TaxData::class);
+        $this->context->expects($this->once())
+            ->method('getTaxData')
+            ->willReturn($taxData);
         $this->currency = $this->getMockBuilder(Currency::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -202,7 +207,7 @@ class ConfigurableTest extends TestCase
      *
      * @return array
      */
-    public function cacheKeyProvider(): array
+    public static function cacheKeyProvider(): array
     {
         return [
             'without_currency_and_customer_group' => [
@@ -254,10 +259,13 @@ class ConfigurableTest extends TestCase
      * @param string|null $priceCurrency
      * @param int|null $customerGroupId
      */
-    public function testGetCacheKeyInfo(array $expected, ?string $priceCurrency = null, ?int $customerGroupId = null)
-    {
+    public function testGetCacheKeyInfo(
+        array $expected,
+        ?string $priceCurrency = null,
+        ?int $customerGroupId = null
+    ): void {
         $storeMock = $this->getMockBuilder(StoreInterface::class)
-            ->setMethods(['getCurrentCurrency'])
+            ->addMethods(['getCurrentCurrency'])
             ->getMockForAbstractClass();
         $storeMock->expects($this->any())
             ->method('getCode')
@@ -282,7 +290,7 @@ class ConfigurableTest extends TestCase
     /**
      * Check that getJsonConfig() method returns expected value
      */
-    public function testGetJsonConfig()
+    public function testGetJsonConfig(): void
     {
         $productId = 1;
         $amount = 10.50;
@@ -292,7 +300,7 @@ class ConfigurableTest extends TestCase
         $amountMock = $this->getAmountMock($amount);
 
         $priceMock = $this->getMockBuilder(PriceInterface::class)
-            ->setMethods(['getAmount'])
+            ->onlyMethods(['getAmount'])
             ->getMockForAbstractClass();
         $priceMock->expects($this->any())->method('getAmount')->willReturn($amountMock);
         $tierPriceMock = $this->getTierPriceMock($amountMock, $priceQty, $percentage);
@@ -347,6 +355,9 @@ class ConfigurableTest extends TestCase
             ->with($priceInfoMock)
             ->willReturn(
                 [
+                    'baseOldPrice' => [
+                        'amount' => $amount,
+                    ],
                     'oldPrice' => [
                         'amount' => $amount,
                     ],
@@ -386,6 +397,9 @@ class ConfigurableTest extends TestCase
             'currencyFormat' => '%s',
             'optionPrices' => [
                 $productId => [
+                    'baseOldPrice' => [
+                        'amount' => $amount,
+                    ],
                     'oldPrice' => [
                         'amount' => $amount,
                     ],
@@ -403,12 +417,15 @@ class ConfigurableTest extends TestCase
                         ],
                     ],
                     'msrpPrice' => [
-                        'amount' => null    ,
+                        'amount' => null,
                     ]
                 ],
             ],
             'priceFormat' => [],
             'prices' => [
+                'baseOldPrice' => [
+                    'amount' => $amount,
+                ],
                 'oldPrice' => [
                     'amount' => $amount,
                 ],
@@ -423,6 +440,8 @@ class ConfigurableTest extends TestCase
             'chooseText' => __('Choose an Option...'),
             'images' => [],
             'index' => [],
+            'salable' => [],
+            'canDisplayShowOutOfStockStatus' => false
         ];
 
         return $expectedArray;
@@ -434,7 +453,7 @@ class ConfigurableTest extends TestCase
      * @param MockObject $productMock
      * @return MockObject
      */
-    private function getProductTypeMock(MockObject $productMock)
+    private function getProductTypeMock(MockObject $productMock): MockObject
     {
         $currencyMock = $this->getMockBuilder(Currency::class)
             ->disableOriginalConstructor()
@@ -444,7 +463,7 @@ class ConfigurableTest extends TestCase
             ->willReturn('%s');
 
         $storeMock = $this->getMockBuilder(StoreInterface::class)
-            ->setMethods(['getCurrentCurrency'])
+            ->addMethods(['getCurrentCurrency'])
             ->getMockForAbstractClass();
         $storeMock->expects($this->any())
             ->method('getCurrentCurrency')
@@ -496,7 +515,7 @@ class ConfigurableTest extends TestCase
     protected function getAmountMock($amount): MockObject
     {
         $amountMock = $this->getMockBuilder(AmountInterface::class)
-            ->setMethods(['getValue', 'getBaseAmount'])
+            ->onlyMethods(['getValue', 'getBaseAmount'])
             ->getMockForAbstractClass();
         $amountMock->expects($this->any())
             ->method('getValue')
@@ -524,7 +543,8 @@ class ConfigurableTest extends TestCase
         ];
 
         $tierPriceMock = $this->getMockBuilder(TierPriceInterface::class)
-            ->setMethods(['getTierPriceList', 'getSavePercent'])
+            ->addMethods(['getSavePercent'])
+            ->onlyMethods(['getTierPriceList'])
             ->getMockForAbstractClass();
         $tierPriceMock->expects($this->any())
             ->method('getTierPriceList')

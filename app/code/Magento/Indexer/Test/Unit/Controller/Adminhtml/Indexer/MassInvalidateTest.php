@@ -196,7 +196,7 @@ class MassInvalidateTest extends TestCase
         $this->title = $this->createMock(Title::class);
         $this->messageManager = $this->getMockForAbstractClass(
             ManagerInterface::class,
-            ['addError', 'addSuccess'],
+            ['addErrorMessage', 'addSuccess'],
             '',
             false
         );
@@ -233,7 +233,7 @@ class MassInvalidateTest extends TestCase
 
         if (!is_array($indexerIds)) {
             $this->messageManager->expects($this->once())
-                ->method('addError')->with(__('Please select indexers.'))
+                ->method('addErrorMessage')->with(__('Please select indexers.'))
                 ->willReturn(1);
         } else {
             $indexerInterface = $this->getMockForAbstractClass(
@@ -261,7 +261,7 @@ class MassInvalidateTest extends TestCase
 
                 if ($exception instanceof LocalizedException) {
                     $this->messageManager->expects($this->once())
-                        ->method('addError')
+                        ->method('addErrorMessage')
                         ->with($exception->getMessage());
                 } else {
                     $this->messageManager->expects($this->once())
@@ -281,23 +281,23 @@ class MassInvalidateTest extends TestCase
     /**
      * @return array
      */
-    public function executeDataProvider()
+    public static function executeDataProvider()
     {
         return [
             'set1' => [
-                'indexers' => 1,
+                'indexerIds' => 1,
                 'exception' => null,
             ],
             'set2' => [
-                'indexers' => [1],
+                'indexerIds' => [1],
                 'exception' => null,
             ],
             'set3' => [
-                'indexers' => [2],
+                'indexerIds' => [2],
                 'exception' => new LocalizedException(__('Test Phrase')),
             ],
             'set4' => [
-                'indexers' => [2],
+                'indexerIds' => [2],
                 'exception' => new \Exception(),
             ]
         ];

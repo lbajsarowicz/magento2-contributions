@@ -141,6 +141,7 @@ class SessionTest extends TestCase
         $this->checkoutSession->setCustomerData($customer);
         $quote = $this->checkoutSession->getQuote();
         $this->validateCustomerDataInQuote($quote);
+        $this->quoteRepository->delete($quote);
     }
 
     /**
@@ -158,6 +159,7 @@ class SessionTest extends TestCase
         $this->customerSession->setCustomerDataObject($customer);
         $quote = $this->checkoutSession->getQuote();
         $this->validateCustomerDataInQuote($quote);
+        $this->quoteRepository->delete($quote);
     }
 
     /**
@@ -198,6 +200,11 @@ class SessionTest extends TestCase
         $this->assertEmpty(
             $this->quote->getCustomerEmail(),
             'Precondition failed: Customer data must not be set to quote'
+        );
+        self::assertEquals(
+            '1',
+            $this->quote->getCustomerIsGuest(),
+            'Precondition failed: Customer must be as guest in quote'
         );
         $customer = $this->customerRepository->getById(1);
         $this->customerSession->setCustomerDataObject($customer);
@@ -245,6 +252,17 @@ class SessionTest extends TestCase
     }
 
     /**
+     * Test covers case when quote is not yet initialized and customer is guest
+     *
+     * Expected result - quote object should be loaded with customer as guest
+     */
+    public function testGetQuoteNotInitializedGuest()
+    {
+        $quote = $this->checkoutSession->getQuote();
+        self::assertEquals('1', $quote->getCustomerIsGuest());
+    }
+
+    /**
      * @magentoDataFixture Magento/Checkout/_files/quote_with_simple_product_saved.php
      * @magentoDataFixture Magento/Checkout/_files/quote_with_customer_without_address.php
      *
@@ -287,6 +305,11 @@ class SessionTest extends TestCase
             $customerFirstNameFromFixture,
             $quote->getCustomerFirstname(),
             'Customer first name was not set to Quote correctly.'
+        );
+        self::assertEquals(
+            '0',
+            $quote->getCustomerIsGuest(),
+            'Customer should not be as guest in Quote.'
         );
     }
 }

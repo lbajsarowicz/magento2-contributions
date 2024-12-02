@@ -78,10 +78,14 @@ class SaveAssetLinksTest extends TestCase
             $this->resourceConnectionMock->expects($this->exactly(2))
                 ->method('getConnection')
                 ->willReturn($this->connectionMock);
-            $this->resourceConnectionMock->expects($this->once())
+            $this->resourceConnectionMock->expects($this->any())
                 ->method('getTableName')
-                ->with('media_gallery_asset_keyword')
-                ->willReturn('prefix_media_gallery_asset_keyword');
+                ->willReturnMap(
+                    [
+                        ['media_gallery_asset_keyword', 'default', 'prefix_media_gallery_asset_keyword'],
+                        ['media_gallery_asset', 'default', 'prefix_media_gallery_asset']
+                    ]
+                );
             $this->connectionMock->expects($this->once())
                 ->method('insertArray')
                 ->with(
@@ -121,7 +125,7 @@ class SaveAssetLinksTest extends TestCase
      *
      * @return array
      */
-    public function assetLinksDataProvider(): array
+    public static function assetLinksDataProvider(): array
     {
         return [
             [

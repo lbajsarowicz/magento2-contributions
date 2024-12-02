@@ -9,6 +9,7 @@ namespace Magento\Catalog\Api;
 
 use Magento\TestFramework\TestCase\WebapiAbstract;
 use Magento\TestFramework\Helper\Bootstrap;
+use Magento\TestFramework\Helper\CompareArraysRecursively;
 
 /**
  * Tests CategoryManagement
@@ -18,6 +19,20 @@ class CategoryManagementTest extends WebapiAbstract
     const RESOURCE_PATH = '/V1/categories';
 
     const SERVICE_NAME = 'catalogCategoryManagementV1';
+
+    /**
+     * @var CompareArraysRecursively
+     */
+    private $compareArraysRecursively;
+
+    /**
+     * @inheritDoc
+     */
+    protected function setUp(): void
+    {
+        $objectManager = Bootstrap::getObjectManager();
+        $this->compareArraysRecursively = $objectManager->create(CompareArraysRecursively::class);
+    }
 
     /**
      * Tests getTree operation
@@ -40,14 +55,14 @@ class CategoryManagementTest extends WebapiAbstract
             ]
         ];
         $result = $this->_webApiCall($serviceInfo, $requestData);
-        $expected = array_replace_recursive($result, $expected);
-        $this->assertEquals($expected, $result);
+        $diff = $this->compareArraysRecursively->execute($expected, $result);
+        self::assertEquals([], $diff, "Actual categories response doesn't equal expected data");
     }
 
     /**
      * @return array
      */
-    public function treeDataProvider(): array
+    public static function treeDataProvider(): array
     {
         return [
             [
@@ -168,7 +183,7 @@ class CategoryManagementTest extends WebapiAbstract
         $this->assertEquals($parentId, $model->getParentId());
     }
 
-    public function updateMoveDataProvider()
+    public static function updateMoveDataProvider()
     {
         return [
             [402, 400, null, 2],

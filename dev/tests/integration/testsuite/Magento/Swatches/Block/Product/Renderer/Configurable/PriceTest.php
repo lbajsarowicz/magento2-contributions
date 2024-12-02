@@ -91,11 +91,11 @@ class PriceTest extends TestCase
     /**
      * @return array
      */
-    public function childProductsDataProvider(): array
+    public static function childProductsDataProvider(): array
     {
         return [
             [
-                'update_data' => [
+                'updateData' => [
                     'simple_option_1' => [
                         'special_price' => 50,
                     ],
@@ -114,8 +114,9 @@ class PriceTest extends TestCase
                         ],
                     ],
                 ],
-                'expected_data' => [
+                'expectedData' => [
                     [
+                        'baseOldPrice' => ['amount' => 150],
                         'oldPrice' => ['amount' => 150],
                         'basePrice' => ['amount' => 50],
                         'finalPrice' => ['amount' => 50],
@@ -123,6 +124,7 @@ class PriceTest extends TestCase
                         'msrpPrice' => ['amount' => null],
                     ],
                     [
+                        'baseOldPrice' => ['amount' => 150],
                         'oldPrice' => ['amount' => 150],
                         'basePrice' => ['amount' => 58.55],
                         'finalPrice' => ['amount' => 58.55],
@@ -130,6 +132,7 @@ class PriceTest extends TestCase
                         'msrpPrice' => ['amount' => null],
                     ],
                     [
+                        'baseOldPrice' => ['amount' => 150],
                         'oldPrice' => ['amount' => 150],
                         'basePrice' => ['amount' => 75],
                         'finalPrice' => ['amount' => 75],
