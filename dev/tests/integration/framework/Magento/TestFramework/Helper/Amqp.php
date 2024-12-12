@@ -1,7 +1,7 @@
 <?php
 /**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
+ * Copyright 2018 Adobe
+ * All Rights Reserved.
  */
 
 declare(strict_types=1);
@@ -19,7 +19,7 @@ class Amqp
     const DEFAULT_MANAGEMENT_PORT = '15672';
 
     /**
-     * @var Curl
+     * @var \Magento\Framework\HTTP\Client\Curl
      */
     private $curl;
 
@@ -44,7 +44,7 @@ class Amqp
     ) {
         $this->deploymentConfig = $deploymentConfig ?? \Magento\TestFramework\Helper\Bootstrap::getObjectManager()
             ->get(\Magento\Framework\App\DeploymentConfig::class);
-        $this->curl = new Curl();
+        $this->curl = new \Magento\Framework\HTTP\Client\Curl();
         $this->curl->setCredentials(
             $this->deploymentConfig->get(self::CONFIG_PATH_USER),
             $this->deploymentConfig->get(self::CONFIG_PATH_PASSWORD)

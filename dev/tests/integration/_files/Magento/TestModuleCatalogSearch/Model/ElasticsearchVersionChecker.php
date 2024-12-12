@@ -1,13 +1,13 @@
 <?php
 /**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
+ * Copyright 2022 Adobe
+ * All Rights Reserved.
  */
 declare(strict_types=1);
 
 namespace Magento\TestModuleCatalogSearch\Model;
 
-use Magento\TestFramework\Helper\Curl;
+use Magento\Framework\HTTP\Client\Curl;
 
 /**
  * Retrieve elasticsearch version by curl request
