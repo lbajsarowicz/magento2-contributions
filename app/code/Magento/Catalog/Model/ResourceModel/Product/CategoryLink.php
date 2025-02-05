@@ -1,7 +1,7 @@
 <?php
 /**
- * Copyright 2017 Adobe
- * All Rights Reserved.
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
  */
 declare(strict_types=1);
 
@@ -291,6 +291,7 @@ class CategoryLink
     /**
      * Removes ObjectCache for Category Links
      *
+     * @param string|null $cacheKey
      * @return void
      */
     private function cleanCategoryLinksCache(?string $cacheKey = null): void
